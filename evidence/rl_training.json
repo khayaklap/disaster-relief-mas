@@ -1,0 +1,110 @@
+{
+  "episodes": 6000,
+  "seed": 20260620,
+  "danger_weight": 8.0,
+  "test_episodes": 240,
+  "history": [
+    {
+      "iteration": 500,
+      "naive": 2.0906,
+      "risk_aware": 2.3356
+    },
+    {
+      "iteration": 1000,
+      "naive": 2.1514,
+      "risk_aware": 2.5013
+    },
+    {
+      "iteration": 1500,
+      "naive": 2.0552,
+      "risk_aware": 2.3413
+    },
+    {
+      "iteration": 2000,
+      "naive": 1.9781,
+      "risk_aware": 2.5878
+    },
+    {
+      "iteration": 2500,
+      "naive": 2.099,
+      "risk_aware": 2.61
+    },
+    {
+      "iteration": 3000,
+      "naive": 2.0147,
+      "risk_aware": 2.625
+    },
+    {
+      "iteration": 3500,
+      "naive": 2.6371,
+      "risk_aware": 2.49
+    },
+    {
+      "iteration": 4000,
+      "naive": 2.3793,
+      "risk_aware": 2.5393
+    },
+    {
+      "iteration": 4500,
+      "naive": 2.2674,
+      "risk_aware": 2.4837
+    },
+    {
+      "iteration": 5000,
+      "naive": 2.6214,
+      "risk_aware": 2.6586
+    },
+    {
+      "iteration": 5500,
+      "naive": 2.4559,
+      "risk_aware": 2.6765
+    },
+    {
+      "iteration": 6000,
+      "naive": 2.533,
+      "risk_aware": 2.7101
+    }
+  ],
+  "final": {
+    "naive": {
+      "true_return": 2.533,
+      "arrival_rate": 1.0,
+      "mean_cumulative_risk": 0.6503,
+      "mean_minutes": 22.6475
+    },
+    "risk_aware": {
+      "true_return": 2.7101,
+      "arrival_rate": 1.0,
+      "mean_cumulative_risk": 0.6167,
+      "mean_minutes": 23.5594
+    },
+    "heuristic": {
+      "true_return": 2.3636,
+      "arrival_rate": 1.0,
+      "mean_cumulative_risk": 0.6739,
+      "mean_minutes": 22.4499
+    }
+  },
+  "verdict": {
+    "reward_hacking_demonstrated": true,
+    "risk_aware_true_return": 2.7101,
+    "naive_true_return": 2.533,
+    "heuristic_true_return": 2.3636,
+    "learned_beats_heuristic": true,
+    "risk_aware_minus_heuristic": 0.3465
+  },
+  "provenance": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "libraries": {
+      "numpy": "2.4.6",
+      "pydantic": "2.13.4",
+      "networkx": "3.6.1",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.0"
+    },
+    "env_fingerprint": "a560f3c5e4d8",
+    "seed": 20260620,
+    "episodes": 6000
+  }
+}

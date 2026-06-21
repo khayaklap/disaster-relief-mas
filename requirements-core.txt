@@ -1,0 +1,14 @@
+# Core dependencies for the deterministic multi-agent simulation, evaluation, and
+# stress tests. Reproducible with NO API key and NO torch. These are the direct deps as
+# version *ranges*; exact pins for byte-for-byte reproduction live in `uv.lock` (use
+# `uv sync` for the locked set). Results are deterministic across in-range versions because
+# all randomness is seeded numpy (PCG64, stable across numpy releases).
+pydantic>=2.10,<3
+numpy>=2.0,<3
+networkx>=3.3,<4
+matplotlib>=3.9,<4
+scipy>=1.13,<2
+# dev/quality (kept here so a single install reproduces tests + lint + types)
+pytest>=8.3
+ruff>=0.6
+mypy>=1.11

@@ -1,0 +1,44 @@
+{
+  "request": {
+    "request_id": "appr:T:rescue:5:11",
+    "action": "commit_asset",
+    "incident_id": "T:rescue:5",
+    "asset_id": "BOAT-1",
+    "decision_package": {
+      "context": {
+        "incident_id": "T:rescue:5",
+        "barangay": "Tumana",
+        "type": "rescue",
+        "people": 21,
+        "severity": 0.4185,
+        "priority": "medium",
+        "deadline_tick": 19
+      },
+      "recommendation": {
+        "asset_id": "BOAT-1",
+        "eta_ticks": 0.47,
+        "welfare_score": 2.3408,
+        "served": 10
+      },
+      "options": [
+        {
+          "asset_id": "BOAT-2",
+          "welfare_score": 1.3016
+        }
+      ],
+      "risk": {
+        "level": "high",
+        "gate_reasons": [
+          "large_commit"
+        ],
+        "commits_last_reserve": false
+      }
+    }
+  },
+  "decision": {
+    "request_id": "appr:T:rescue:5:11",
+    "approved": true,
+    "approver": "cdrrmo-duty-officer",
+    "reason": "high-stakes action justified by severity and need"
+  }
+}

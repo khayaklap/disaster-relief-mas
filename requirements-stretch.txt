@@ -1,0 +1,7 @@
+# Stretch-only dependencies for the offline multi-agent RL routing study (Phase 7,
+# `bayanihan_net.rl`). The core MAS never imports these; install only to reproduce
+# the RL-vs-heuristic comparison. Heavy (torch) and optional by design.
+-r requirements-core.txt
+gymnasium>=1.0,<2
+torch>=2.2
+stable-baselines3>=2.3

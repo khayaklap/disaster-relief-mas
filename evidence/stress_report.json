@@ -1,0 +1,200 @@
+{
+  "provenance": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "libraries": {
+      "numpy": "2.4.6",
+      "pydantic": "2.13.4",
+      "networkx": "3.6.1",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.0"
+    },
+    "env_fingerprint": "df131e7bf145",
+    "seed": 20260620
+  },
+  "all_passed": true,
+  "scenarios": {
+    "baseline": {
+      "description": "no stress -- the reference run",
+      "overrides": {},
+      "checks": {
+        "no_double_commit": true,
+        "served_some_need": true,
+        "restabilized": true,
+        "passed": true
+      },
+      "outcome": {
+        "served_fraction": 0.3428,
+        "severity_weighted_served_fraction": 0.3662,
+        "min_served_fraction": 0.2803,
+        "sla_compliance": 0.4697,
+        "sybil_served": 0,
+        "sybil_suppressed": 0
+      },
+      "emergence": {
+        "escalations": 1,
+        "rollbacks": 0,
+        "messages_dropped": 0,
+        "reassignment_rate": 0.0
+      }
+    },
+    "report_storm": {
+      "description": "citizen-report spike (4x volume) -- tests dedup + rate handling",
+      "overrides": {
+        "report_storm_multiplier": 4.0
+      },
+      "checks": {
+        "no_double_commit": true,
+        "served_some_need": true,
+        "restabilized": true,
+        "passed": true
+      },
+      "outcome": {
+        "served_fraction": 0.3881,
+        "severity_weighted_served_fraction": 0.396,
+        "min_served_fraction": 0.3165,
+        "sla_compliance": 0.7424,
+        "sybil_served": 0,
+        "sybil_suppressed": 0
+      },
+      "emergence": {
+        "escalations": 1,
+        "rollbacks": 0,
+        "messages_dropped": 0,
+        "reassignment_rate": 0.0
+      }
+    },
+    "sybil_injection": {
+      "description": "fabricated reports injected -- tests the Sybil suppression heuristic",
+      "overrides": {
+        "sybil_false_rate": 0.25
+      },
+      "checks": {
+        "no_double_commit": true,
+        "served_some_need": true,
+        "restabilized": true,
+        "passed": true
+      },
+      "outcome": {
+        "served_fraction": 0.2667,
+        "severity_weighted_served_fraction": 0.2896,
+        "min_served_fraction": 0.1538,
+        "sla_compliance": 0.4265,
+        "sybil_served": 58,
+        "sybil_suppressed": 3
+      },
+      "emergence": {
+        "escalations": 2,
+        "rollbacks": 0,
+        "messages_dropped": 0,
+        "reassignment_rate": 0.0
+      }
+    },
+    "comms_blackout": {
+      "description": "40% message loss -- tests degraded-comms resilience",
+      "overrides": {
+        "comms_drop_prob": 0.4
+      },
+      "checks": {
+        "no_double_commit": true,
+        "served_some_need": true,
+        "restabilized": true,
+        "passed": true
+      },
+      "outcome": {
+        "served_fraction": 0.3441,
+        "severity_weighted_served_fraction": 0.3463,
+        "min_served_fraction": 0.24,
+        "sla_compliance": 0.5152,
+        "sybil_served": 0,
+        "sybil_suppressed": 0
+      },
+      "emergence": {
+        "escalations": 1,
+        "rollbacks": 0,
+        "messages_dropped": 132,
+        "reassignment_rate": 0.0
+      }
+    },
+    "agent_kill": {
+      "description": "25% of the fleet disabled at the flood peak -- tests reassignment + lease reclaim",
+      "overrides": {
+        "agent_kill_fraction": 0.25
+      },
+      "checks": {
+        "no_double_commit": true,
+        "served_some_need": true,
+        "restabilized": true,
+        "passed": true
+      },
+      "outcome": {
+        "served_fraction": 0.2113,
+        "severity_weighted_served_fraction": 0.2376,
+        "min_served_fraction": 0.0845,
+        "sla_compliance": 0.3182,
+        "sybil_served": 0,
+        "sybil_suppressed": 0
+      },
+      "emergence": {
+        "escalations": 1,
+        "rollbacks": 0,
+        "messages_dropped": 0,
+        "reassignment_rate": 0.0
+      }
+    },
+    "forecast_outage": {
+      "description": "river gauge knocked out at peak -> stale COP -- tests misroute handling",
+      "overrides": {
+        "forecast_outage_at_peak": true
+      },
+      "checks": {
+        "no_double_commit": true,
+        "served_some_need": true,
+        "restabilized": true,
+        "passed": true
+      },
+      "outcome": {
+        "served_fraction": 0.317,
+        "severity_weighted_served_fraction": 0.337,
+        "min_served_fraction": 0.2547,
+        "sla_compliance": 0.4545,
+        "sybil_served": 0,
+        "sybil_suppressed": 0
+      },
+      "emergence": {
+        "escalations": 1,
+        "rollbacks": 0,
+        "messages_dropped": 0,
+        "reassignment_rate": 0.0
+      }
+    },
+    "compound_crisis": {
+      "description": "report storm + comms loss + asset loss together -- the worst case",
+      "overrides": {
+        "report_storm_multiplier": 3.0,
+        "comms_drop_prob": 0.3,
+        "agent_kill_fraction": 0.2
+      },
+      "checks": {
+        "no_double_commit": true,
+        "served_some_need": true,
+        "restabilized": true,
+        "passed": true
+      },
+      "outcome": {
+        "served_fraction": 0.2368,
+        "severity_weighted_served_fraction": 0.2488,
+        "min_served_fraction": 0.0,
+        "sla_compliance": 0.3939,
+        "sybil_served": 0,
+        "sybil_suppressed": 0
+      },
+      "emergence": {
+        "escalations": 1,
+        "rollbacks": 0,
+        "messages_dropped": 102,
+        "reassignment_rate": 0.0
+      }
+    }
+  }
+}

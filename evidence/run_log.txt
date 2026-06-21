@@ -1,0 +1,31 @@
+==============================================================================
+BAYANIHAN-NET  --  worked scenario transcript
+==============================================================================
+run_id           : marikina_typhoon-hybrid-seed20260620
+scenario / seed  : marikina_typhoon / 20260620
+policy           : hybrid  (fairness=False, governance=True)
+python / fp      : 3.12.13 / 013f8d40ba7f
+libraries        : numpy=2.4.6, pydantic=2.13.4, networkx=3.6.1, scipy=1.18.0, matplotlib=3.11.0
+
+-- one incident, end to end --------------------------------------------------
+  t= 4  incident_opened        {'incident_id': 'T:rescue:2', 'node': 'T', 'itype': 'rescue', 'severity': 0.3863, 'priority': 'medium'}
+  t= 4  asset_committed        {'asset_id': 'BOAT-1', 'incident_id': 'T:rescue:2', 'task_id': 'task:T:rescue:2:4'}
+  t= 4  awarded                {'asset_id': 'BOAT-1', 'incident_id': 'T:rescue:2', 'welfare': 1.6312, 'gated': False}
+  t= 5  asset_on_scene         {'asset_id': 'BOAT-1', 'incident_id': 'T:rescue:2'}
+  t= 6  asset_freed            {'asset_id': 'BOAT-1', 'node': 'T'}
+
+-- system outcome ------------------------------------------------------------
+  genuine incidents      : 66
+  people: need / served  : 776 / 266 (34.3%)
+  SLA compliance         : 47.0%  (served late: 2)
+  unmet-need Gini        : 0.171
+  unmet by barangay      : {'Concepcion': 73, 'IndustrialValley': 85, 'Malanday': 77, 'Nangka': 45, 'Provident': 95, 'Tumana': 135}
+
+-- coordination & safety -----------------------------------------------------
+  commitments            : 33
+  HITL approvals / denied: 12 / 7
+  escalations            : 1
+  rollbacks (reassign)   : 0  (rate 0.000)
+  messages dropped       : 0
+  load-spread entropy    : 0.967
+==============================================================================

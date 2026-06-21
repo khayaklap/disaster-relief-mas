@@ -1,0 +1,797 @@
+{"tick": 0, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:0"}
+{"tick": 1, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:1"}
+{"tick": 2, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:2"}
+{"tick": 3, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:3"}
+{"tick": 4, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:4"}
+{"tick": 4, "event": "incident_opened", "incident_id": "T:rescue:2", "node": "T", "itype": "rescue", "severity": 0.3863, "priority": "medium"}
+{"tick": 4, "event": "asset_committed", "asset_id": "BOAT-1", "incident_id": "T:rescue:2", "task_id": "task:T:rescue:2:4"}
+{"tick": 4, "event": "awarded", "asset_id": "BOAT-1", "incident_id": "T:rescue:2", "welfare": 1.6312, "gated": false}
+{"tick": 5, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:5"}
+{"tick": 5, "event": "incident_opened", "incident_id": "N:rescue:2", "node": "N", "itype": "rescue", "severity": 0.3598, "priority": "medium"}
+{"tick": 5, "event": "incident_fused", "incident_id": "N:rescue:2", "report_count": 2}
+{"tick": 5, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "N:rescue:2", "task_id": "task:N:rescue:2:5"}
+{"tick": 5, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "N:rescue:2", "welfare": 0.871, "gated": false}
+{"tick": 5, "event": "asset_on_scene", "asset_id": "BOAT-1", "incident_id": "T:rescue:2"}
+{"tick": 6, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:6"}
+{"tick": 6, "event": "asset_freed", "asset_id": "BOAT-1", "node": "T"}
+{"tick": 6, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "N:rescue:2"}
+{"tick": 7, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:7"}
+{"tick": 7, "event": "incident_opened", "incident_id": "T:medical:3", "node": "T", "itype": "medical", "severity": 0.4402, "priority": "medium"}
+{"tick": 7, "event": "mass_casualty_escalation", "demand": 14, "capacity": 12}
+{"tick": 7, "event": "a2a_mutual_aid", "to_agency": "qc-cdrrmo", "capability": "medical_mutual_aid", "state": "completed", "accepted": true}
+{"tick": 7, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:7"}
+{"tick": 7, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:7"}
+{"tick": 7, "event": "asset_freed", "asset_id": "BOAT-2", "node": "N"}
+{"tick": 8, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:8"}
+{"tick": 8, "event": "incident_opened", "incident_id": "M:relief:4", "node": "M", "itype": "relief", "severity": 0.2391, "priority": "low"}
+{"tick": 8, "event": "incident_opened", "incident_id": "M:medical:4", "node": "M", "itype": "medical", "severity": 0.4309, "priority": "medium"}
+{"tick": 8, "event": "incident_opened", "incident_id": "P:rescue:4", "node": "P", "itype": "rescue", "severity": 0.3514, "priority": "medium"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:P:rescue:4:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:P:rescue:4:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:P:rescue:4:8"}
+{"tick": 8, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "P:rescue:4", "task_id": "task:P:rescue:4:8"}
+{"tick": 8, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "P:rescue:4", "welfare": 1.4102, "gated": false}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:M:relief:4:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:M:relief:4:8"}
+{"tick": 8, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:M:relief:4:8"}
+{"tick": 8, "event": "asset_committed", "asset_id": "BOAT-1", "incident_id": "M:relief:4", "task_id": "task:M:relief:4:8"}
+{"tick": 8, "event": "awarded", "asset_id": "BOAT-1", "incident_id": "M:relief:4", "welfare": 1.51, "gated": false}
+{"tick": 9, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:9"}
+{"tick": 9, "event": "incident_opened", "incident_id": "M:rescue:4", "node": "M", "itype": "rescue", "severity": 0.3805, "priority": "medium"}
+{"tick": 9, "event": "incident_fused", "incident_id": "M:rescue:4", "report_count": 2}
+{"tick": 9, "event": "incident_opened", "incident_id": "I:rescue:4", "node": "I", "itype": "rescue", "severity": 0.3269, "priority": "medium"}
+{"tick": 9, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:9"}
+{"tick": 9, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:9"}
+{"tick": 9, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:9"}
+{"tick": 9, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:9"}
+{"tick": 9, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:M:rescue:4:9"}
+{"tick": 9, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:M:rescue:4:9"}
+{"tick": 9, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:M:rescue:4:9"}
+{"tick": 9, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "M:rescue:4", "task_id": "task:M:rescue:4:9"}
+{"tick": 9, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "M:rescue:4", "welfare": 1.3082, "gated": false}
+{"tick": 9, "event": "asset_committed", "asset_id": "BOAT-4", "incident_id": "I:rescue:4", "task_id": "task:I:rescue:4:9"}
+{"tick": 9, "event": "awarded", "asset_id": "BOAT-4", "incident_id": "I:rescue:4", "welfare": 1.0791, "gated": false}
+{"tick": 9, "event": "asset_on_scene", "asset_id": "BOAT-1", "incident_id": "M:relief:4"}
+{"tick": 9, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "P:rescue:4"}
+{"tick": 10, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:10"}
+{"tick": 10, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:10"}
+{"tick": 10, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:10"}
+{"tick": 10, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:10"}
+{"tick": 10, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:10"}
+{"tick": 10, "event": "asset_freed", "asset_id": "BOAT-1", "node": "M"}
+{"tick": 10, "event": "asset_freed", "asset_id": "BOAT-2", "node": "P"}
+{"tick": 10, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "M:rescue:4"}
+{"tick": 10, "event": "asset_on_scene", "asset_id": "BOAT-4", "incident_id": "I:rescue:4"}
+{"tick": 11, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:11"}
+{"tick": 11, "event": "incident_opened", "incident_id": "T:rescue:5", "node": "T", "itype": "rescue", "severity": 0.4185, "priority": "medium"}
+{"tick": 11, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:11"}
+{"tick": 11, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:11"}
+{"tick": 11, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:11"}
+{"tick": 11, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:11"}
+{"tick": 11, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:T:rescue:5:11"}
+{"tick": 11, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:rescue:5:11"}
+{"tick": 11, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:rescue:5:11"}
+{"tick": 11, "event": "hitl_decision", "incident_id": "T:rescue:5", "approved": true, "reasons": ["large_commit"]}
+{"tick": 11, "event": "asset_committed", "asset_id": "BOAT-1", "incident_id": "T:rescue:5", "task_id": "task:T:rescue:5:11"}
+{"tick": 11, "event": "awarded", "asset_id": "BOAT-1", "incident_id": "T:rescue:5", "welfare": 2.3408, "gated": true}
+{"tick": 11, "event": "asset_freed", "asset_id": "BOAT-3", "node": "M"}
+{"tick": 11, "event": "asset_freed", "asset_id": "BOAT-4", "node": "I"}
+{"tick": 12, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:12"}
+{"tick": 12, "event": "incident_opened", "incident_id": "C:relief:6", "node": "C", "itype": "relief", "severity": 0.1813, "priority": "low"}
+{"tick": 12, "event": "incident_fused", "incident_id": "C:relief:6", "report_count": 2}
+{"tick": 12, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:12"}
+{"tick": 12, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:12"}
+{"tick": 12, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:12"}
+{"tick": 12, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:12"}
+{"tick": 12, "event": "asset_committed", "asset_id": "BOAT-4", "incident_id": "C:relief:6", "task_id": "task:C:relief:6:12"}
+{"tick": 12, "event": "awarded", "asset_id": "BOAT-4", "incident_id": "C:relief:6", "welfare": 0.8222, "gated": false}
+{"tick": 12, "event": "asset_on_scene", "asset_id": "BOAT-1", "incident_id": "T:rescue:5"}
+{"tick": 13, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:13"}
+{"tick": 13, "event": "incident_opened", "incident_id": "T:relief:6", "node": "T", "itype": "relief", "severity": 0.2547, "priority": "low"}
+{"tick": 13, "event": "incident_opened", "incident_id": "N:medical:6", "node": "N", "itype": "medical", "severity": 0.4162, "priority": "medium"}
+{"tick": 13, "event": "incident_opened", "incident_id": "P:rescue:6", "node": "P", "itype": "rescue", "severity": 0.3762, "priority": "medium"}
+{"tick": 13, "event": "incident_fused", "incident_id": "P:rescue:6", "report_count": 2}
+{"tick": 13, "event": "incident_opened", "incident_id": "C:rescue:6", "node": "C", "itype": "rescue", "severity": 0.2815, "priority": "low"}
+{"tick": 13, "event": "incident_fused", "incident_id": "C:rescue:6", "report_count": 2}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:P:rescue:6:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:P:rescue:6:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:P:rescue:6:13"}
+{"tick": 13, "event": "hitl_decision", "incident_id": "P:rescue:6", "approved": true, "reasons": ["large_commit"]}
+{"tick": 13, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "P:rescue:6", "task_id": "task:P:rescue:6:13"}
+{"tick": 13, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "P:rescue:6", "welfare": 3.762, "gated": true}
+{"tick": 13, "event": "asset_committed", "asset_id": "TRUCK-1", "incident_id": "C:rescue:6", "task_id": "task:C:rescue:6:13"}
+{"tick": 13, "event": "awarded", "asset_id": "TRUCK-1", "incident_id": "C:rescue:6", "welfare": 0.7871, "gated": false}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:relief:6:13"}
+{"tick": 13, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:relief:6:13"}
+{"tick": 13, "event": "hitl_decision", "incident_id": "T:relief:6", "approved": true, "reasons": ["large_commit"]}
+{"tick": 13, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "T:relief:6", "task_id": "task:T:relief:6:13"}
+{"tick": 13, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "T:relief:6", "welfare": 1.0477, "gated": true}
+{"tick": 13, "event": "asset_freed", "asset_id": "BOAT-1", "node": "T"}
+{"tick": 13, "event": "asset_on_scene", "asset_id": "BOAT-4", "incident_id": "C:relief:6"}
+{"tick": 14, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:14"}
+{"tick": 14, "event": "incident_opened", "incident_id": "P:medical:7", "node": "P", "itype": "medical", "severity": 0.4069, "priority": "medium"}
+{"tick": 14, "event": "incident_opened", "incident_id": "I:medical:7", "node": "I", "itype": "medical", "severity": 0.3797, "priority": "medium"}
+{"tick": 14, "event": "incident_fused", "incident_id": "I:medical:7", "report_count": 2}
+{"tick": 14, "event": "incident_fused", "incident_id": "I:medical:7", "report_count": 3}
+{"tick": 14, "event": "incident_opened", "incident_id": "C:relief:7", "node": "C", "itype": "relief", "severity": 0.1786, "priority": "low"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:14"}
+{"tick": 14, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:14"}
+{"tick": 14, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "P:rescue:6"}
+{"tick": 14, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "T:relief:6"}
+{"tick": 14, "event": "asset_freed", "asset_id": "BOAT-4", "node": "C"}
+{"tick": 14, "event": "asset_on_scene", "asset_id": "TRUCK-1", "incident_id": "C:rescue:6"}
+{"tick": 15, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:C:relief:7:15"}
+{"tick": 15, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:C:relief:7:15"}
+{"tick": 15, "event": "asset_committed", "asset_id": "BOAT-4", "incident_id": "C:relief:7", "task_id": "task:C:relief:7:15"}
+{"tick": 15, "event": "awarded", "asset_id": "BOAT-4", "incident_id": "C:relief:7", "welfare": 1.0716, "gated": false}
+{"tick": 15, "event": "asset_freed", "asset_id": "BOAT-2", "node": "P"}
+{"tick": 15, "event": "asset_freed", "asset_id": "BOAT-3", "node": "T"}
+{"tick": 15, "event": "asset_freed", "asset_id": "TRUCK-1", "node": "C"}
+{"tick": 16, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:16"}
+{"tick": 16, "event": "incident_opened", "incident_id": "C:rescue:8", "node": "C", "itype": "rescue", "severity": 0.2839, "priority": "low"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:C:rescue:8:16"}
+{"tick": 16, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:C:rescue:8:16"}
+{"tick": 16, "event": "asset_committed", "asset_id": "TRUCK-1", "incident_id": "C:rescue:8", "task_id": "task:C:rescue:8:16"}
+{"tick": 16, "event": "awarded", "asset_id": "TRUCK-1", "incident_id": "C:rescue:8", "welfare": 1.9873, "gated": false}
+{"tick": 16, "event": "asset_on_scene", "asset_id": "BOAT-4", "incident_id": "C:relief:7"}
+{"tick": 17, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:17"}
+{"tick": 17, "event": "incident_opened", "incident_id": "I:rescue:8", "node": "I", "itype": "rescue", "severity": 0.3269, "priority": "medium"}
+{"tick": 17, "event": "incident_opened", "incident_id": "C:medical:8", "node": "C", "itype": "medical", "severity": 0.3099, "priority": "medium"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:I:rescue:8:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:I:rescue:8:17"}
+{"tick": 17, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "I:rescue:8", "task_id": "task:I:rescue:8:17"}
+{"tick": 17, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "I:rescue:8", "welfare": 0.8284, "gated": false}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:17"}
+{"tick": 17, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:17"}
+{"tick": 17, "event": "asset_freed", "asset_id": "BOAT-4", "node": "C"}
+{"tick": 17, "event": "asset_on_scene", "asset_id": "TRUCK-1", "incident_id": "C:rescue:8"}
+{"tick": 18, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:18"}
+{"tick": 18, "event": "incident_opened", "incident_id": "M:rescue:9", "node": "M", "itype": "rescue", "severity": 0.3755, "priority": "medium"}
+{"tick": 18, "event": "incident_opened", "incident_id": "P:medical:9", "node": "P", "itype": "medical", "severity": 0.3932, "priority": "medium"}
+{"tick": 18, "event": "incident_opened", "incident_id": "I:relief:9", "node": "I", "itype": "relief", "severity": 0.2011, "priority": "low"}
+{"tick": 18, "event": "incident_opened", "incident_id": "I:rescue:9", "node": "I", "itype": "rescue", "severity": 0.3517, "priority": "medium"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:M:rescue:9:18"}
+{"tick": 18, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:M:rescue:9:18"}
+{"tick": 18, "event": "asset_committed", "asset_id": "BOAT-1", "incident_id": "M:rescue:9", "task_id": "task:M:rescue:9:18"}
+{"tick": 18, "event": "awarded", "asset_id": "BOAT-1", "incident_id": "M:rescue:9", "welfare": 1.2335, "gated": false}
+{"tick": 18, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "I:rescue:8"}
+{"tick": 18, "event": "asset_freed", "asset_id": "TRUCK-1", "node": "C"}
+{"tick": 19, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:19"}
+{"tick": 19, "event": "incident_opened", "incident_id": "T:rescue:9", "node": "T", "itype": "rescue", "severity": 0.3987, "priority": "medium"}
+{"tick": 19, "event": "incident_fused", "incident_id": "M:rescue:9", "report_count": 2}
+{"tick": 19, "event": "incident_fused", "incident_id": "M:rescue:9", "report_count": 3}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:T:rescue:9:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:rescue:9:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:rescue:9:19"}
+{"tick": 19, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "T:rescue:9", "task_id": "task:T:rescue:9:19"}
+{"tick": 19, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "T:rescue:9", "welfare": 3.1896, "gated": false}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:19"}
+{"tick": 19, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:19"}
+{"tick": 19, "event": "asset_on_scene", "asset_id": "BOAT-1", "incident_id": "M:rescue:9"}
+{"tick": 19, "event": "asset_freed", "asset_id": "BOAT-2", "node": "I"}
+{"tick": 20, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:I:rescue:9:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:I:rescue:9:20"}
+{"tick": 20, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:I:rescue:9:20"}
+{"tick": 20, "event": "hitl_decision", "incident_id": "I:rescue:9", "approved": true, "reasons": ["large_commit"]}
+{"tick": 20, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "I:rescue:9", "task_id": "task:I:rescue:9:20"}
+{"tick": 20, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "I:rescue:9", "welfare": 3.517, "gated": true}
+{"tick": 20, "event": "asset_freed", "asset_id": "BOAT-1", "node": "M"}
+{"tick": 20, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "T:rescue:9"}
+{"tick": 21, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:21"}
+{"tick": 21, "event": "incident_opened", "incident_id": "T:relief:10", "node": "T", "itype": "relief", "severity": 0.2602, "priority": "low"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:21"}
+{"tick": 21, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:21"}
+{"tick": 21, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "I:rescue:9"}
+{"tick": 21, "event": "asset_freed", "asset_id": "BOAT-3", "node": "T"}
+{"tick": 22, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:22"}
+{"tick": 22, "event": "incident_opened", "incident_id": "C:relief:11", "node": "C", "itype": "relief", "severity": 0.1923, "priority": "low"}
+{"tick": 22, "event": "incident_fused", "incident_id": "C:relief:11", "report_count": 2}
+{"tick": 22, "event": "incident_fused", "incident_id": "C:relief:11", "report_count": 3}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:T:relief:10:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:relief:10:22"}
+{"tick": 22, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:relief:10:22"}
+{"tick": 22, "event": "hitl_decision", "incident_id": "T:relief:10", "approved": true, "reasons": ["large_commit"]}
+{"tick": 22, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "T:relief:10", "task_id": "task:T:relief:10:22"}
+{"tick": 22, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "T:relief:10", "welfare": 2.0816, "gated": true}
+{"tick": 22, "event": "asset_freed", "asset_id": "BOAT-2", "node": "I"}
+{"tick": 23, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:23"}
+{"tick": 23, "event": "incident_opened", "incident_id": "P:rescue:11", "node": "P", "itype": "rescue", "severity": 0.2637, "priority": "low"}
+{"tick": 23, "event": "incident_fused", "incident_id": "P:rescue:11", "report_count": 2}
+{"tick": 23, "event": "incident_opened", "incident_id": "I:rescue:11", "node": "I", "itype": "rescue", "severity": 0.2392, "priority": "low"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:P:rescue:11:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:P:rescue:11:23"}
+{"tick": 23, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:P:rescue:11:23"}
+{"tick": 23, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "P:rescue:11", "task_id": "task:P:rescue:11:23"}
+{"tick": 23, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "P:rescue:11", "welfare": 0.708, "gated": false}
+{"tick": 23, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "T:relief:10"}
+{"tick": 24, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:24"}
+{"tick": 24, "event": "incident_opened", "incident_id": "C:relief:12", "node": "C", "itype": "relief", "severity": 0.1271, "priority": "low"}
+{"tick": 24, "event": "incident_fused", "incident_id": "C:relief:12", "report_count": 2}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:24"}
+{"tick": 24, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:24"}
+{"tick": 24, "event": "asset_freed", "asset_id": "BOAT-3", "node": "T"}
+{"tick": 25, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:I:rescue:11:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:I:rescue:11:25"}
+{"tick": 25, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:I:rescue:11:25"}
+{"tick": 25, "event": "asset_committed", "asset_id": "BOAT-4", "incident_id": "I:rescue:11", "task_id": "task:I:rescue:11:25"}
+{"tick": 25, "event": "awarded", "asset_id": "BOAT-4", "incident_id": "I:rescue:11", "welfare": 0.946, "gated": false}
+{"tick": 25, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "P:rescue:11"}
+{"tick": 26, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:26"}
+{"tick": 26, "event": "incident_opened", "incident_id": "T:rescue:13", "node": "T", "itype": "rescue", "severity": 0.311, "priority": "medium"}
+{"tick": 26, "event": "incident_opened", "incident_id": "I:medical:13", "node": "I", "itype": "medical", "severity": 0.263, "priority": "low"}
+{"tick": 26, "event": "incident_opened", "incident_id": "C:rescue:13", "node": "C", "itype": "rescue", "severity": 0.1814, "priority": "low"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:T:rescue:13:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:rescue:13:26"}
+{"tick": 26, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:rescue:13:26"}
+{"tick": 26, "event": "hitl_decision", "incident_id": "T:rescue:13", "approved": true, "reasons": ["large_commit"]}
+{"tick": 26, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "T:rescue:13", "task_id": "task:T:rescue:13:26"}
+{"tick": 26, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "T:rescue:13", "welfare": 2.488, "gated": true}
+{"tick": 26, "event": "asset_freed", "asset_id": "BOAT-2", "node": "P"}
+{"tick": 26, "event": "asset_on_scene", "asset_id": "BOAT-4", "incident_id": "I:rescue:11"}
+{"tick": 27, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:27"}
+{"tick": 27, "event": "incident_opened", "incident_id": "M:rescue:13", "node": "M", "itype": "rescue", "severity": 0.2853, "priority": "low"}
+{"tick": 27, "event": "incident_opened", "incident_id": "P:relief:13", "node": "P", "itype": "relief", "severity": 0.1729, "priority": "low"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:27"}
+{"tick": 27, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:27"}
+{"tick": 27, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "T:rescue:13"}
+{"tick": 27, "event": "asset_freed", "asset_id": "BOAT-4", "node": "I"}
+{"tick": 28, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:M:rescue:13:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:M:rescue:13:28"}
+{"tick": 28, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:M:rescue:13:28"}
+{"tick": 28, "event": "asset_committed", "asset_id": "BOAT-1", "incident_id": "M:rescue:13", "task_id": "task:M:rescue:13:28"}
+{"tick": 28, "event": "awarded", "asset_id": "BOAT-1", "incident_id": "M:rescue:13", "welfare": 2.853, "gated": false}
+{"tick": 28, "event": "asset_freed", "asset_id": "BOAT-3", "node": "T"}
+{"tick": 29, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:29"}
+{"tick": 29, "event": "incident_opened", "incident_id": "N:relief:14", "node": "N", "itype": "relief", "severity": 0.1761, "priority": "low"}
+{"tick": 29, "event": "incident_fused", "incident_id": "N:relief:14", "report_count": 2}
+{"tick": 29, "event": "incident_fused", "incident_id": "N:relief:14", "report_count": 3}
+{"tick": 29, "event": "incident_fused", "incident_id": "N:relief:14", "report_count": 4}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:13:29"}
+{"tick": 29, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:13:29"}
+{"tick": 29, "event": "asset_on_scene", "asset_id": "BOAT-1", "incident_id": "M:rescue:13"}
+{"tick": 30, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:13:30"}
+{"tick": 30, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:13:30"}
+{"tick": 30, "event": "asset_freed", "asset_id": "BOAT-1", "node": "M"}
+{"tick": 31, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:31"}
+{"tick": 31, "event": "incident_opened", "incident_id": "I:rescue:15", "node": "I", "itype": "rescue", "severity": 0.2466, "priority": "low"}
+{"tick": 31, "event": "incident_fused", "incident_id": "I:rescue:15", "report_count": 2}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:13:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:13:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:I:rescue:15:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:I:rescue:15:31"}
+{"tick": 31, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:I:rescue:15:31"}
+{"tick": 31, "event": "hitl_decision", "incident_id": "I:rescue:15", "approved": true, "reasons": ["large_commit"]}
+{"tick": 31, "event": "asset_committed", "asset_id": "BOAT-4", "incident_id": "I:rescue:15", "task_id": "task:I:rescue:15:31"}
+{"tick": 31, "event": "awarded", "asset_id": "BOAT-4", "incident_id": "I:rescue:15", "welfare": 1.9728, "gated": true}
+{"tick": 32, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:32"}
+{"tick": 32, "event": "incident_opened", "incident_id": "C:rescue:16", "node": "C", "itype": "rescue", "severity": 0.1864, "priority": "low"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:13:32"}
+{"tick": 32, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:13:32"}
+{"tick": 32, "event": "asset_on_scene", "asset_id": "BOAT-4", "incident_id": "I:rescue:15"}
+{"tick": 33, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:33"}
+{"tick": 33, "event": "incident_opened", "incident_id": "T:rescue:16", "node": "T", "itype": "rescue", "severity": 0.311, "priority": "medium"}
+{"tick": 33, "event": "incident_fused", "incident_id": "T:rescue:16", "report_count": 2}
+{"tick": 33, "event": "incident_opened", "incident_id": "P:rescue:16", "node": "P", "itype": "rescue", "severity": 0.2836, "priority": "low"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:T:rescue:16:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:rescue:16:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:rescue:16:33"}
+{"tick": 33, "event": "hitl_decision", "incident_id": "T:rescue:16", "approved": true, "reasons": ["large_commit"]}
+{"tick": 33, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "T:rescue:16", "task_id": "task:T:rescue:16:33"}
+{"tick": 33, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "T:rescue:16", "welfare": 2.488, "gated": true}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:33"}
+{"tick": 33, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:33"}
+{"tick": 33, "event": "asset_freed", "asset_id": "BOAT-4", "node": "I"}
+{"tick": 34, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:34"}
+{"tick": 34, "event": "incident_opened", "incident_id": "M:rescue:17", "node": "M", "itype": "rescue", "severity": 0.3027, "priority": "medium"}
+{"tick": 34, "event": "incident_opened", "incident_id": "C:medical:17", "node": "C", "itype": "medical", "severity": 0.2042, "priority": "low"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:C:medical:8:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:C:medical:8:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:M:rescue:17:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:M:rescue:17:34"}
+{"tick": 34, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:M:rescue:17:34"}
+{"tick": 34, "event": "hitl_decision", "incident_id": "M:rescue:17", "approved": true, "reasons": ["large_commit"]}
+{"tick": 34, "event": "asset_committed", "asset_id": "BOAT-1", "incident_id": "M:rescue:17", "task_id": "task:M:rescue:17:34"}
+{"tick": 34, "event": "awarded", "asset_id": "BOAT-1", "incident_id": "M:rescue:17", "welfare": 3.027, "gated": true}
+{"tick": 34, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "T:rescue:16"}
+{"tick": 35, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:35"}
+{"tick": 35, "event": "incident_opened", "incident_id": "N:rescue:17", "node": "N", "itype": "rescue", "severity": 0.282, "priority": "low"}
+{"tick": 35, "event": "incident_fused", "incident_id": "N:rescue:17", "report_count": 2}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:35"}
+{"tick": 35, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:35"}
+{"tick": 35, "event": "asset_committed", "asset_id": "MED-1", "incident_id": "C:medical:8", "task_id": "task:C:medical:8:35"}
+{"tick": 35, "event": "awarded", "asset_id": "MED-1", "incident_id": "C:medical:8", "welfare": 0.6381, "gated": false}
+{"tick": 35, "event": "asset_on_scene", "asset_id": "BOAT-1", "incident_id": "M:rescue:17"}
+{"tick": 35, "event": "asset_freed", "asset_id": "BOAT-3", "node": "T"}
+{"tick": 36, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:36"}
+{"tick": 36, "event": "incident_opened", "incident_id": "N:rescue:18", "node": "N", "itype": "rescue", "severity": 0.2845, "priority": "low"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:N:rescue:18:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:N:rescue:18:36"}
+{"tick": 36, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:N:rescue:18:36"}
+{"tick": 36, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "N:rescue:18", "task_id": "task:N:rescue:18:36"}
+{"tick": 36, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "N:rescue:18", "welfare": 1.3302, "gated": false}
+{"tick": 36, "event": "asset_freed", "asset_id": "BOAT-1", "node": "M"}
+{"tick": 37, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:37"}
+{"tick": 37, "event": "incident_opened", "incident_id": "P:rescue:18", "node": "P", "itype": "rescue", "severity": 0.2588, "priority": "low"}
+{"tick": 37, "event": "incident_fused", "incident_id": "P:rescue:18", "report_count": 2}
+{"tick": 37, "event": "incident_opened", "incident_id": "I:rescue:18", "node": "I", "itype": "rescue", "severity": 0.2466, "priority": "low"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:P:rescue:16:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:P:rescue:16:37"}
+{"tick": 37, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:P:rescue:16:37"}
+{"tick": 37, "event": "hitl_decision", "incident_id": "P:rescue:16", "approved": true, "reasons": ["large_commit"]}
+{"tick": 37, "event": "asset_committed", "asset_id": "BOAT-1", "incident_id": "P:rescue:16", "task_id": "task:P:rescue:16:37"}
+{"tick": 37, "event": "awarded", "asset_id": "BOAT-1", "incident_id": "P:rescue:16", "welfare": 1.0038, "gated": true}
+{"tick": 37, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "N:rescue:18"}
+{"tick": 37, "event": "asset_on_scene", "asset_id": "MED-1", "incident_id": "C:medical:8"}
+{"tick": 38, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:38"}
+{"tick": 38, "event": "incident_opened", "incident_id": "T:rescue:19", "node": "T", "itype": "rescue", "severity": 0.3382, "priority": "medium"}
+{"tick": 38, "event": "incident_opened", "incident_id": "T:relief:19", "node": "T", "itype": "relief", "severity": 0.1991, "priority": "low"}
+{"tick": 38, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:38"}
+{"tick": 38, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:38"}
+{"tick": 38, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:38"}
+{"tick": 38, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:38"}
+{"tick": 38, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:38"}
+{"tick": 38, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:38"}
+{"tick": 38, "event": "asset_on_scene", "asset_id": "BOAT-1", "incident_id": "P:rescue:16"}
+{"tick": 38, "event": "asset_freed", "asset_id": "BOAT-2", "node": "N"}
+{"tick": 38, "event": "asset_freed", "asset_id": "MED-1", "node": "C"}
+{"tick": 39, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:39"}
+{"tick": 39, "event": "incident_opened", "incident_id": "P:rescue:19", "node": "P", "itype": "rescue", "severity": 0.2563, "priority": "low"}
+{"tick": 39, "event": "incident_opened", "incident_id": "I:rescue:19", "node": "I", "itype": "rescue", "severity": 0.2318, "priority": "low"}
+{"tick": 39, "event": "incident_opened", "incident_id": "C:rescue:19", "node": "C", "itype": "rescue", "severity": 0.1888, "priority": "low"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:T:rescue:19:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:rescue:19:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:rescue:19:39"}
+{"tick": 39, "event": "hitl_decision", "incident_id": "T:rescue:19", "approved": true, "reasons": ["large_commit"]}
+{"tick": 39, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "T:rescue:19", "task_id": "task:T:rescue:19:39"}
+{"tick": 39, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "T:rescue:19", "welfare": 2.7056, "gated": true}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:N:rescue:17:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:N:rescue:17:39"}
+{"tick": 39, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:N:rescue:17:39"}
+{"tick": 39, "event": "asset_committed", "asset_id": "BOAT-2", "incident_id": "N:rescue:17", "task_id": "task:N:rescue:17:39"}
+{"tick": 39, "event": "awarded", "asset_id": "BOAT-2", "incident_id": "N:rescue:17", "welfare": 2.82, "gated": false}
+{"tick": 39, "event": "asset_freed", "asset_id": "BOAT-1", "node": "P"}
+{"tick": 40, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:40"}
+{"tick": 40, "event": "incident_opened", "incident_id": "P:medical:20", "node": "P", "itype": "medical", "severity": 0.2958, "priority": "low"}
+{"tick": 40, "event": "incident_fused", "incident_id": "P:medical:20", "report_count": 2}
+{"tick": 40, "event": "incident_fused", "incident_id": "P:medical:20", "report_count": 3}
+{"tick": 40, "event": "incident_opened", "incident_id": "I:rescue:20", "node": "I", "itype": "rescue", "severity": 0.2343, "priority": "low"}
+{"tick": 40, "event": "incident_opened", "incident_id": "C:rescue:20", "node": "C", "itype": "rescue", "severity": 0.1864, "priority": "low"}
+{"tick": 40, "event": "incident_fused", "incident_id": "C:rescue:20", "report_count": 2}
+{"tick": 40, "event": "incident_opened", "incident_id": "C:relief:20", "node": "C", "itype": "relief", "severity": 0.1258, "priority": "low"}
+{"tick": 40, "event": "incident_fused", "incident_id": "C:relief:20", "report_count": 2}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:20:40"}
+{"tick": 40, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:20:40"}
+{"tick": 40, "event": "asset_on_scene", "asset_id": "BOAT-2", "incident_id": "N:rescue:17"}
+{"tick": 40, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "T:rescue:19"}
+{"tick": 41, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:41"}
+{"tick": 41, "event": "incident_fused", "incident_id": "I:rescue:20", "report_count": 2}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:I:medical:7:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:I:medical:7:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:20:41"}
+{"tick": 41, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:20:41"}
+{"tick": 41, "event": "asset_freed", "asset_id": "BOAT-2", "node": "N"}
+{"tick": 41, "event": "asset_freed", "asset_id": "BOAT-3", "node": "T"}
+{"tick": 42, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:42"}
+{"tick": 42, "event": "incident_opened", "incident_id": "T:medical:21", "node": "T", "itype": "medical", "severity": 0.34, "priority": "medium"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:42"}
+{"tick": 42, "event": "hitl_decision", "incident_id": "I:medical:7", "approved": true, "reasons": ["large_commit"]}
+{"tick": 42, "event": "asset_committed", "asset_id": "MED-1", "incident_id": "I:medical:7", "task_id": "task:I:medical:7:42"}
+{"tick": 42, "event": "awarded", "asset_id": "MED-1", "incident_id": "I:medical:7", "welfare": 1.3539, "gated": true}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:21:42"}
+{"tick": 42, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:20:42"}
+{"tick": 42, "event": "hitl_decision", "incident_id": "I:medical:13", "approved": false, "reasons": ["commit_last_medical_team"]}
+{"tick": 43, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:43"}
+{"tick": 43, "event": "incident_opened", "incident_id": "T:rescue:21", "node": "T", "itype": "rescue", "severity": 0.3036, "priority": "medium"}
+{"tick": 43, "event": "incident_opened", "incident_id": "M:relief:21", "node": "M", "itype": "relief", "severity": 0.1959, "priority": "low"}
+{"tick": 43, "event": "incident_opened", "incident_id": "P:relief:21", "node": "P", "itype": "relief", "severity": 0.1646, "priority": "low"}
+{"tick": 43, "event": "incident_fused", "incident_id": "P:relief:21", "report_count": 2}
+{"tick": 43, "event": "incident_opened", "incident_id": "C:medical:21", "node": "C", "itype": "medical", "severity": 0.196, "priority": "low"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:21:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "TRUCK-1", "task_id": "task:T:rescue:21:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "TRUCK-2", "task_id": "task:T:rescue:21:43"}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "TRUCK-3", "task_id": "task:T:rescue:21:43"}
+{"tick": 43, "event": "asset_committed", "asset_id": "BOAT-3", "incident_id": "T:rescue:21", "task_id": "task:T:rescue:21:43"}
+{"tick": 43, "event": "awarded", "asset_id": "BOAT-3", "incident_id": "T:rescue:21", "welfare": 2.4288, "gated": false}
+{"tick": 43, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:20:43"}
+{"tick": 43, "event": "asset_on_scene", "asset_id": "MED-1", "incident_id": "I:medical:7"}
+{"tick": 44, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:44"}
+{"tick": 44, "event": "incident_opened", "incident_id": "M:medical:22", "node": "M", "itype": "medical", "severity": 0.3252, "priority": "medium"}
+{"tick": 44, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:44"}
+{"tick": 44, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:44"}
+{"tick": 44, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:44"}
+{"tick": 44, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:44"}
+{"tick": 44, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:44"}
+{"tick": 44, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:21:44"}
+{"tick": 44, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:22:44"}
+{"tick": 44, "event": "asset_on_scene", "asset_id": "BOAT-3", "incident_id": "T:rescue:21"}
+{"tick": 44, "event": "asset_freed", "asset_id": "MED-1", "node": "I"}
+{"tick": 45, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:45"}
+{"tick": 45, "event": "incident_opened", "incident_id": "P:rescue:22", "node": "P", "itype": "rescue", "severity": 0.2563, "priority": "low"}
+{"tick": 45, "event": "incident_fused", "incident_id": "P:rescue:22", "report_count": 2}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:21:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:21:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:22:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:22:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:20:45"}
+{"tick": 45, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:20:45"}
+{"tick": 45, "event": "asset_freed", "asset_id": "BOAT-3", "node": "T"}
+{"tick": 46, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:3:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:4:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:4:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:N:medical:6:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:N:medical:6:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:7:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:7:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:9:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:9:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:T:medical:21:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:21:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:M:medical:22:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:M:medical:22:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-1", "task_id": "task:P:medical:20:46"}
+{"tick": 46, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:P:medical:20:46"}
+{"tick": 46, "event": "asset_committed", "asset_id": "MED-1", "incident_id": "I:medical:13", "task_id": "task:I:medical:13:46"}
+{"tick": 46, "event": "awarded", "asset_id": "MED-1", "incident_id": "I:medical:13", "welfare": 1.578, "gated": false}
+{"tick": 47, "event": "mcp_call", "tool": "pagasa.river", "ok": true, "trace": "river:47"}
+{"tick": 47, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:3:47"}
+{"tick": 47, "event": "hitl_decision", "incident_id": "M:medical:4", "approved": false, "reasons": ["commit_last_medical_team", "large_commit"]}
+{"tick": 47, "event": "hitl_decision", "incident_id": "N:medical:6", "approved": false, "reasons": ["commit_last_medical_team"]}
+{"tick": 47, "event": "hitl_decision", "incident_id": "P:medical:7", "approved": false, "reasons": ["commit_last_medical_team", "large_commit"]}
+{"tick": 47, "event": "hitl_decision", "incident_id": "P:medical:9", "approved": false, "reasons": ["commit_last_medical_team"]}
+{"tick": 47, "event": "bid_infeasible", "asset_id": "MED-2", "task_id": "task:T:medical:21:47"}
+{"tick": 47, "event": "hitl_decision", "incident_id": "M:medical:22", "approved": false, "reasons": ["commit_last_medical_team", "large_commit"]}
+{"tick": 47, "event": "hitl_decision", "incident_id": "P:medical:20", "approved": false, "reasons": ["commit_last_medical_team", "large_commit"]}
+{"tick": 47, "event": "asset_on_scene", "asset_id": "MED-1", "incident_id": "I:medical:13"}

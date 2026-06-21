@@ -1,0 +1,349 @@
+{
+  "seeds": 12,
+  "per_policy": {
+    "hybrid": {
+      "served_fraction": {
+        "mean": 0.346,
+        "se": 0.0223
+      },
+      "severity_weighted_served_fraction": {
+        "mean": 0.3528,
+        "se": 0.0178
+      },
+      "sla_compliance": {
+        "mean": 0.6063,
+        "se": 0.0472
+      },
+      "min_served_fraction": {
+        "mean": 0.2198,
+        "se": 0.0338
+      },
+      "coverage_gini": {
+        "mean": 0.1092,
+        "se": 0.0176
+      },
+      "reassignment_rate": {
+        "mean": 0.0,
+        "se": 0.0
+      }
+    },
+    "fairness_weighted": {
+      "served_fraction": {
+        "mean": 0.3422,
+        "se": 0.0218
+      },
+      "severity_weighted_served_fraction": {
+        "mean": 0.35,
+        "se": 0.0177
+      },
+      "sla_compliance": {
+        "mean": 0.6018,
+        "se": 0.047
+      },
+      "min_served_fraction": {
+        "mean": 0.2117,
+        "se": 0.0336
+      },
+      "coverage_gini": {
+        "mean": 0.1094,
+        "se": 0.0157
+      },
+      "reassignment_rate": {
+        "mean": 0.0,
+        "se": 0.0
+      }
+    },
+    "no_governance": {
+      "served_fraction": {
+        "mean": 0.3483,
+        "se": 0.0232
+      },
+      "severity_weighted_served_fraction": {
+        "mean": 0.3547,
+        "se": 0.0185
+      },
+      "sla_compliance": {
+        "mean": 0.6149,
+        "se": 0.0481
+      },
+      "min_served_fraction": {
+        "mean": 0.2215,
+        "se": 0.0344
+      },
+      "coverage_gini": {
+        "mean": 0.1106,
+        "se": 0.0174
+      },
+      "reassignment_rate": {
+        "mean": 0.0,
+        "se": 0.0
+      }
+    },
+    "greedy_nearest": {
+      "served_fraction": {
+        "mean": 0.3489,
+        "se": 0.0241
+      },
+      "severity_weighted_served_fraction": {
+        "mean": 0.3543,
+        "se": 0.0193
+      },
+      "sla_compliance": {
+        "mean": 0.6063,
+        "se": 0.0475
+      },
+      "min_served_fraction": {
+        "mean": 0.2172,
+        "se": 0.036
+      },
+      "coverage_gini": {
+        "mean": 0.1177,
+        "se": 0.0161
+      },
+      "reassignment_rate": {
+        "mean": 0.0,
+        "se": 0.0
+      }
+    },
+    "fifo": {
+      "served_fraction": {
+        "mean": 0.3419,
+        "se": 0.0237
+      },
+      "severity_weighted_served_fraction": {
+        "mean": 0.3483,
+        "se": 0.0193
+      },
+      "sla_compliance": {
+        "mean": 0.5986,
+        "se": 0.0489
+      },
+      "min_served_fraction": {
+        "mean": 0.2197,
+        "se": 0.0358
+      },
+      "coverage_gini": {
+        "mean": 0.1056,
+        "se": 0.0157
+      },
+      "reassignment_rate": {
+        "mean": 0.0,
+        "se": 0.0
+      }
+    },
+    "random": {
+      "served_fraction": {
+        "mean": 0.3324,
+        "se": 0.0247
+      },
+      "severity_weighted_served_fraction": {
+        "mean": 0.3403,
+        "se": 0.02
+      },
+      "sla_compliance": {
+        "mean": 0.5972,
+        "se": 0.0528
+      },
+      "min_served_fraction": {
+        "mean": 0.2025,
+        "se": 0.0335
+      },
+      "coverage_gini": {
+        "mean": 0.1129,
+        "se": 0.0161
+      },
+      "reassignment_rate": {
+        "mean": 0.0,
+        "se": 0.0
+      }
+    }
+  },
+  "hybrid_minus_baseline_paired": {
+    "fairness_weighted": {
+      "served_fraction": {
+        "delta": 0.0038,
+        "se": 0.0022,
+        "significant": false
+      },
+      "severity_weighted_served_fraction": {
+        "delta": 0.0028,
+        "se": 0.0017,
+        "significant": false
+      },
+      "sla_compliance": {
+        "delta": 0.0044,
+        "se": 0.0025,
+        "significant": false
+      },
+      "min_served_fraction": {
+        "delta": 0.008,
+        "se": 0.0048,
+        "significant": false
+      },
+      "coverage_gini": {
+        "delta": -0.0002,
+        "se": 0.0063,
+        "significant": false
+      },
+      "reassignment_rate": {
+        "delta": 0.0,
+        "se": 0.0,
+        "significant": false
+      }
+    },
+    "no_governance": {
+      "served_fraction": {
+        "delta": -0.0024,
+        "se": 0.0018,
+        "significant": false
+      },
+      "severity_weighted_served_fraction": {
+        "delta": -0.0019,
+        "se": 0.0014,
+        "significant": false
+      },
+      "sla_compliance": {
+        "delta": -0.0086,
+        "se": 0.0034,
+        "significant": true
+      },
+      "min_served_fraction": {
+        "delta": -0.0017,
+        "se": 0.0017,
+        "significant": false
+      },
+      "coverage_gini": {
+        "delta": -0.0014,
+        "se": 0.001,
+        "significant": false
+      },
+      "reassignment_rate": {
+        "delta": 0.0,
+        "se": 0.0,
+        "significant": false
+      }
+    },
+    "greedy_nearest": {
+      "served_fraction": {
+        "delta": -0.0029,
+        "se": 0.003,
+        "significant": false
+      },
+      "severity_weighted_served_fraction": {
+        "delta": -0.0015,
+        "se": 0.0025,
+        "significant": false
+      },
+      "sla_compliance": {
+        "delta": 0.0,
+        "se": 0.0015,
+        "significant": false
+      },
+      "min_served_fraction": {
+        "delta": 0.0026,
+        "se": 0.0075,
+        "significant": false
+      },
+      "coverage_gini": {
+        "delta": -0.0085,
+        "se": 0.0058,
+        "significant": false
+      },
+      "reassignment_rate": {
+        "delta": 0.0,
+        "se": 0.0,
+        "significant": false
+      }
+    },
+    "fifo": {
+      "served_fraction": {
+        "delta": 0.0041,
+        "se": 0.0037,
+        "significant": false
+      },
+      "severity_weighted_served_fraction": {
+        "delta": 0.0045,
+        "se": 0.003,
+        "significant": false
+      },
+      "sla_compliance": {
+        "delta": 0.0077,
+        "se": 0.0047,
+        "significant": false
+      },
+      "min_served_fraction": {
+        "delta": 0.0001,
+        "se": 0.0051,
+        "significant": false
+      },
+      "coverage_gini": {
+        "delta": 0.0036,
+        "se": 0.0051,
+        "significant": false
+      },
+      "reassignment_rate": {
+        "delta": 0.0,
+        "se": 0.0,
+        "significant": false
+      }
+    },
+    "random": {
+      "served_fraction": {
+        "delta": 0.0136,
+        "se": 0.0063,
+        "significant": true
+      },
+      "severity_weighted_served_fraction": {
+        "delta": 0.0125,
+        "se": 0.0044,
+        "significant": true
+      },
+      "sla_compliance": {
+        "delta": 0.0091,
+        "se": 0.0124,
+        "significant": false
+      },
+      "min_served_fraction": {
+        "delta": 0.0173,
+        "se": 0.0113,
+        "significant": false
+      },
+      "coverage_gini": {
+        "delta": -0.0037,
+        "se": 0.0129,
+        "significant": false
+      },
+      "reassignment_rate": {
+        "delta": 0.0,
+        "se": 0.0,
+        "significant": false
+      }
+    }
+  },
+  "provenance": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "libraries": {
+      "numpy": "2.4.6",
+      "pydantic": "2.13.4",
+      "networkx": "3.6.1",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.0"
+    },
+    "env_fingerprint": "3dcbd7125260",
+    "seeds": [
+      20260620,
+      20260621,
+      20260622,
+      20260623,
+      20260624,
+      20260625,
+      20260626,
+      20260627,
+      20260628,
+      20260629,
+      20260630,
+      20260631
+    ]
+  }
+}

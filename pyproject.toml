@@ -1,0 +1,65 @@
+[project]
+name = "bayanihan-net"
+version = "0.1.0"
+description = "Bayanihan-Net: a multi-agent coordination system for typhoon-induced urban flood response (Marikina River basin)."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "MMA student" }]
+license = { text = "MIT" }
+dependencies = [
+    "pydantic>=2.10,<3",
+    "numpy>=2.0,<3",
+    "networkx>=3.3,<4",
+    "matplotlib>=3.9,<4",
+    "scipy>=1.13,<2",
+]
+
+[project.optional-dependencies]
+# Stretch only: the offline multi-agent RL routing study (Phase 7). The core MAS
+# never imports these, so the graded artifact runs with `requirements-core.txt` alone.
+stretch = [
+    "gymnasium>=1.0,<2",
+    "torch>=2.2",
+    "stable-baselines3>=2.3",
+]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.6",
+    "mypy>=1.11",
+]
+
+[project.scripts]
+bayanihan-net = "bayanihan_net.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# Run tests against src/ without an editable install (mirrors the prior assignments).
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "evals", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C901"]
+ignore = ["E501"]  # long lines tolerated in tabular docstrings/data
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10  # enforce the "no function over cyclomatic complexity 10" claim in CI
+
+[tool.mypy]
+python_version = "3.12"
+disallow_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+no_implicit_optional = true
+files = ["src/bayanihan_net"]
