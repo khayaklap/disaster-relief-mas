@@ -96,7 +96,12 @@ retry).
 The simulation is discrete-event over a 12-hour horizon (48 ticks). A seeded world advances the
 hydrograph, floods the road graph, and emits a citizen-report stream (with duplicates and optional Sybil
 injection). The control plane is deterministic; the world RNG and the engine-side RNG (comms-drop, asset
-loss) are separate so injecting stress never perturbs the underlying disaster. Evaluation is two-tier:
+loss) are separate so injecting stress never perturbs the underlying disaster. The live coordination
+loop uses no LLM by design (a deliberate reading of the governance requirement for deterministic,
+auditable life-safety decisions); all results reported here use the default configuration, which
+needs no API key. An optional, opt-in, offline-by-default advisory LLM perception layer exists but is
+disabled throughout, and is bounded by an output guardrail that re-validates any extraction against
+ground truth---so it can never alter a safety-relevant value. Evaluation is two-tier:
 \emph{Tier~A} invariants are a hard gate, and
 \emph{Tier~B} compares the hybrid against five ablation baselines---\texttt{fairness\_weighted},
 \texttt{no\_governance}, \texttt{greedy\_nearest}, \texttt{fifo}, \texttt{random}---across twelve seeds.

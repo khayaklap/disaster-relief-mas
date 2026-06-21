@@ -1,0 +1,13 @@
+# OPTIONAL: the advisory LLM perception layer (Tier B). NOT needed to reproduce any graded
+# artifact -- the default pipeline (worked run, eval, stress, RL study) runs with
+# `requirements-core.txt` alone, key-free and byte-identical. Install this only to exercise
+# `bayanihan-net run --llm-advisory` against a live model.
+#
+#   pip install -r requirements-core.txt -r requirements-llm.txt
+#
+# Then set OPENAI_API_KEY (+ optional OPENAI_MODEL) in the environment or a local .env
+# (see .env.example; .env is gitignored). The advisory layer is never on the safety-critical
+# path: every extraction is re-validated against ground truth and falls back deterministically.
+openai-agents>=0.1
+openai>=1.40
+python-dotenv>=1.0

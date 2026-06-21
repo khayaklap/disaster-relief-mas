@@ -8,7 +8,9 @@ Subcommands (each writes provenance-stamped artifacts under ``evidence/``):
 * ``rl-train`` -- the offline MARL routing study -> training curve + comparison.
 
 All four subcommands are live. Everything is reproducible from ``--seed``; no API key or network
-is required.
+is required. ``run`` additionally accepts ``--llm-advisory`` to enable the opt-in advisory LLM
+perception layer (Tier B) -- offline unless ``OPENAI_API_KEY`` is set, and never on the
+safety-critical path.
 """
 
 from __future__ import annotations
@@ -152,7 +154,7 @@ def print_summary(report: RunReport) -> None:
 # subcommands
 def cmd_run(args: argparse.Namespace) -> int:
     """`run`: simulate one worked scenario and write its stamped evidence artifacts."""
-    cfg = config_with(args.seed)
+    cfg = config_with(args.seed, llm_advisory=args.llm_advisory)
     engine = Engine(
         cfg,
         policy_name="fairness_weighted" if args.fairness else "hybrid",
@@ -160,6 +162,10 @@ def cmd_run(args: argparse.Namespace) -> int:
         order_mode="fairness" if args.fairness else "severity",
         use_governance=not args.no_governance,
     )
+    if args.llm_advisory:
+        print(
+            "  advisory LLM perception layer: ENABLED (Tier B, offline unless OPENAI_API_KEY set)"
+        )
     report = engine.run()
     out = Path(args.out)
     write_evidence(engine, report, out)
@@ -302,6 +308,12 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--figures", default="figures", help="figure output directory")
     run.add_argument("--fairness", action="store_true", help="use equity-weighted ordering")
     run.add_argument("--no-governance", action="store_true", help="disable the HITL gate")
+    run.add_argument(
+        "--llm-advisory",
+        action="store_true",
+        help="enable the opt-in advisory LLM perception layer (Tier B; offline unless "
+        "OPENAI_API_KEY is set; never affects a safety-relevant decision)",
+    )
     run.set_defaults(func=cmd_run)
 
     ev = sub.add_parser("eval", help="hybrid vs. baselines across seeds -> results.csv")

@@ -1,0 +1,76 @@
+================================================================================
+BAYANIHAN-NET  --  advisory LLM perception layer (Tier B), sample evidence
+================================================================================
+The OPTIONAL advisory layer (`bayanihan-net run --llm-advisory`) renders each
+structured citizen report to realistic free text, has an LLM extract it back to
+typed facts (headcount + incident type), and RE-VALIDATES that extraction against
+the deterministic ground truth. A passing extraction equals the truth (the run is
+unchanged); a failing one is discarded for the deterministic facts (the run is
+unchanged). The LLM is observed and verified, never trusted -- it can never move a
+safety-relevant value. Severity/priority are always computed by code.
+
+This file has two parts:
+  (A) a REAL, fully-reproducible offline-enabled run (no API key);
+  (B) the audit records the LIVE path emits, shown via a deterministic stand-in
+      for the model so the verified/caught behaviour is demonstrable without a key.
+
+--------------------------------------------------------------------------------
+(A) Offline-enabled run  --  `bayanihan-net run --llm-advisory`  (NO API key)
+--------------------------------------------------------------------------------
+With the layer enabled but no provider configured, every report takes the safe
+deterministic passthrough; the layer is fully wired and traced, but invokes no model.
+This is byte-reproducible from the seed with `requirements-core.txt` alone.
+
+scenario_report.json -> provenance.llm:
+  {"enabled": true, "mode": "offline", "model": null,
+   "reports_seen": 89, "llm_invocations": 0, "guardrail_tripwires": 0}
+
+audit_log.jsonl  (first records; one per citizen report this run):
+  {"tick": 4, "event": "llm_extract", "used_llm": false, "ok": true, "reason": "offline_no_provider", "node": "T", "report_id": "R-0002"}
+  {"tick": 5, "event": "llm_extract", "used_llm": false, "ok": true, "reason": "offline_no_provider", "node": "N", "report_id": "R-0004"}
+  {"tick": 5, "event": "llm_extract", "used_llm": false, "ok": true, "reason": "offline_no_provider", "node": "N", "report_id": "R-0005"}
+  ... (89 records total; reports_seen == 89)
+
+Note: the worked decision stream, served counts, SLA, and Gini are IDENTICAL to the
+default run -- enabling the layer adds the `llm_extract` audit trail and the `llm`
+provenance block, and nothing else (verified: the default `evidence/*` is unchanged).
+
+--------------------------------------------------------------------------------
+(B) Live path  --  what the audit records show with a real provider
+--------------------------------------------------------------------------------
+With `OPENAI_API_KEY` set (see `.env.example`, `requirements-llm.txt`), `used_llm`
+becomes true and the output guardrail (`evaluate_extraction`) re-checks the model's
+headcount and type against the structured report. Two outcomes, both logged:
+
+  Example free text rendered for report R-0002 (RESCUE, 12 people, Tumana):
+    "Emergency in Tumana -- about 12 residents trapped by floodwater and need rescue boats."
+
+  VERIFIED (model recovered the facts; its values are used == ground truth):
+    {"used_llm": true, "ok": true, "model": "gpt-5.4-mini",
+     "trace": "trace:T:rescue:2", "node": "T", "report_id": "R-0002"}
+
+  CAUGHT (model hallucinated a headcount; guardrail trips, falls back to truth):
+    {"used_llm": true, "ok": false, "reason": "guardrail_tripwire",
+     "violations": ["people mismatch: extracted 52, truth 12"],
+     "model": "gpt-5.4-mini", "trace": "trace:T:rescue:2", "node": "T", "report_id": "R-0002"}
+
+The CAUGHT case is the headline safety property: even a confidently-wrong model
+cannot inflate demand or mis-route assets -- the extraction is rejected, the
+deterministic fact (12) is used, and the catch is recorded as evidence. This is the
+Assignment-1 "hallucinated FINE 999 blocked" / Assignment-2 "reward hacking caught"
+lesson, applied at the perception edge.
+
+--------------------------------------------------------------------------------
+Reproduce
+--------------------------------------------------------------------------------
+(A) is reproducible with no key:
+      python -m bayanihan_net.cli run --llm-advisory --out /tmp/ev --figures /tmp/fig
+      grep llm_extract /tmp/ev/audit_log.jsonl
+(B) the verified/caught records are produced live with OPENAI_API_KEY set, and the
+    guardrail logic is proven deterministically by:
+      pytest tests/test_perception.py -k "verified or hallucination"
+
+This is the ONE evidence artifact whose live half (B) needs an API key; everything
+else under evidence/ is offline-reproducible from the seed (cf. the dashboard-PNG
+caveat in Assignment 1).
+================================================================================

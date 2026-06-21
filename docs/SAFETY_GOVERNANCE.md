@@ -107,3 +107,27 @@ live safety loop**:
 This is the deck's stance made concrete: *most business multi-agent systems should start without MARL
 and earn it*; here MARL earns a bounded, offline, advisory role on exactly the sub-problem where it
 helps, and nowhere near the irreversible decisions.
+
+## 6. The LLM advisory boundary (perception edge)
+
+The optional LLM perception layer ([`perception/`](../src/bayanihan_net/perception/),
+`--llm-advisory`; [DESIGN.md §6a](DESIGN.md)) sits under the **same boundary** as the RL component —
+sandboxed, advisory, and unable to affect a safety-relevant decision:
+
+- It runs only at the **perception edge**, extracting the typed facts a citizen states (headcount +
+  type) from a free-text report. It never allocates, routes, gates, or commits.
+- Its output is **re-validated against the deterministic ground truth** by an output guardrail
+  (`evaluate_extraction`): a passing extraction *equals* the truth (the run is unchanged) and a
+  failing one — a hallucinated headcount or wrong type — is **discarded** in favour of the
+  deterministic facts and logged. So the model is *observed and verified, never trusted*; it cannot
+  move a safety-relevant value, **by construction** (the guardrail leaves no path to it).
+- It is **opt-in and offline-by-default** (no key ⇒ deterministic passthrough), so the default
+  pipeline imports no LLM library and stays byte-identical and key-free.
+- Severity, priority, dedup, Sybil-suppression, allocation, the HITL gate, and the no-double-commit
+  invariant are all still **enforced by the deterministic control plane**, downstream of and immune to
+  the advisory layer.
+
+Abuse cases extend cleanly: a confidently-wrong or adversarial extraction is the perception-layer
+analogue of the Sybil/`cop:write` threats in §4 — caught by the guardrail (`guardrail_tripwire` in the
+audit log) and bounded to a deterministic fallback, exactly as a hallucinated `FINE 999` was blocked
+in Assignment 1. Evidence: `evidence/sample_llm_extract.txt` and `tests/test_perception.py`.

@@ -154,6 +154,13 @@ class EnvParams:
     # hook that is NOT wired into the live loop (no Gini-triggered rollback fires at runtime).
     gini_rollback_threshold: float = 0.55
 
+    # Optional advisory LLM perception layer (Tier B; default OFF). When True, each citizen
+    # report is rendered to free text and an LLM extracts it back to typed facts, re-validated
+    # against ground truth by an output guardrail -- a mismatch falls back to the deterministic
+    # facts. The LLM can never change a safety-relevant value (it is observed and verified, not
+    # trusted), and the default (False) keeps the pipeline byte-identical and key-free.
+    llm_advisory: bool = False
+
 
 # The Marikina scenario fixture (illustrative geography)
 # Nodes: 6 flood-exposed barangays + 2 staging/care nodes + 2 junctions.

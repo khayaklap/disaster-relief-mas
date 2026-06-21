@@ -22,6 +22,14 @@ stretch = [
     "torch>=2.2",
     "stable-baselines3>=2.3",
 ]
+# Optional only: the advisory LLM perception layer (Tier B). The core MAS never imports
+# these (the SDK is lazy-loaded inside the seam), so the default pipeline runs key-free and
+# byte-identical with `requirements-core.txt` alone. `python-dotenv` is convenience only.
+llm-advisory = [
+    "openai-agents>=0.1",
+    "openai>=1.40",
+    "python-dotenv>=1.0",
+]
 dev = [
     "pytest>=8.3",
     "ruff>=0.6",

@@ -19,7 +19,7 @@ writes — state changes flow through the blackboard's guarded mutators, where t
 
 | Agent | Responsibility | Observes | Tools (mocked) | Memory / state | Scopes / permissions | Escalates when |
 |---|---|---|---|---|---|---|
-| **Sensing scout** ×2 ([`sensing.py`](src/bayanihan_net/agents/sensing.py)) | Convert citizen reports for its barangays into typed COP incidents; flag implausible (Sybil) reports | Raw reports for its nodes; COP river | report queue | covered-node set; message-sequence counter (otherwise stateless per tick) | `cop:write` | — (writes only) |
+| **Sensing scout** ×2 ([`sensing.py`](src/bayanihan_net/agents/sensing.py)) | Convert citizen reports for its barangays into typed COP incidents; flag implausible (Sybil) reports | Raw reports for its nodes; COP river | report queue; *optional* advisory LLM extractor ([`perception/`](src/bayanihan_net/perception/), Tier B, sandboxed) | covered-node set; message-sequence counter (otherwise stateless per tick) | `cop:write` | — (writes only) |
 | **Hydromet / forecast** ([`forecast.py`](src/bayanihan_net/agents/forecast.py)) | Post river level to the COP each tick | True river level | PAGASA gauge (MCP) | message-sequence counter (stateless gauge) | `cop:write`, `tool:pagasa.read` | — |
 | **Triage** ([`triage.py`](src/bayanihan_net/agents/triage.py)) | Prioritize open incidents (severity-first), suppress uncorroborated Sybil reports, announce tasks (CFP) | COP incidents | task board | message-sequence counter (reasons over the COP; no private memory) | `taskboard:write` | — |
 | **Logistics** ×2 (rescue, relief) ([`logistics.py`](src/bayanihan_net/agents/logistics.py)) | Own scarce assets; bid feasible owned assets into auctions | COP tasks; own asset state; routing | asset registry | owner id; message-sequence counter (asset state lives on the COP, not the agent) | `asset:bid`, `asset:commit` | — (bids only) |
@@ -68,10 +68,14 @@ requires), and a read-only **Auditor** (so the system can be evaluated without g
 ### Sensing scout
 
 - **May:** post `INCIDENT_REPORT` messages for nodes it covers; set a *suspected-false* flag
-  when a severe report comes from a barangay that cannot plausibly be flooding yet.
+  when a severe report comes from a barangay that cannot plausibly be flooding yet. *Optionally*
+  (when `llm_advisory` is on) use the advisory LLM extractor to recover the reported facts
+  (headcount + type) from free text — a local, sandboxed call, **not** a bus-gated COP write.
 
 - **Never:** dispatch assets; suppress incidents (that is triage's call); fabricate severity
-  (severity is a pure function of reported facts).
+  (severity is a pure function of reported facts); **let the advisory extractor override a verified
+  fact** — its output is re-validated against ground truth (`evaluate_extraction`) and a mismatch
+  falls back to the deterministic value, so the LLM can never change what the scout reports.
 
 - **State:** the set of nodes it covers; a per-agent message sequence counter (for
   deterministic message IDs). Partial observability is *by design* — no scout sees the whole

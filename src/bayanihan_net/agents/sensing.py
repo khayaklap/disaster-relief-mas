@@ -15,6 +15,7 @@ from ..config import Scenario
 from ..incidents import content_key, priority_of, sla_deadline
 from ..messages import Envelope, IncidentReportPayload, MsgType
 from ..network import local_flood_intensity
+from ..perception import extract_report
 from ..scenario import RawReport
 from .base import Agent
 
@@ -28,6 +29,9 @@ class SensingAgent(Agent):
     def __init__(self, agent_id: str, scenario: Scenario, nodes: Iterable[str]) -> None:
         super().__init__(agent_id, scenario)
         self.nodes = set(nodes)
+        # Audit records from the OPTIONAL advisory LLM extraction (empty unless llm_advisory is
+        # on); the engine drains them into the blackboard event log after observe().
+        self._advisory: list[dict[str, object]] = []
 
     def observe(
         self, raw_reports: list[RawReport], cop_river_m: float | None, tick: int
@@ -38,12 +42,20 @@ class SensingAgent(Agent):
             if r.node not in self.nodes:
                 continue
             key = content_key(r.node, r.itype, tick, self.params.dedup_window_ticks)
+            # Default path: copy the structured facts. Advisory path (opt-in): an LLM extracts
+            # them from rendered free text, re-validated against this ground truth -- so the
+            # values used are identical on success and fall back to the truth on any mismatch.
+            people, itype = r.people, r.itype
+            if self.params.llm_advisory:
+                outcome = extract_report(r, trace_id=f"trace:{key}")
+                people, itype = outcome.people, outcome.itype
+                self._advisory.append(outcome.audit)
             payload = IncidentReportPayload(
                 incident_id=r.ground_truth_id,
                 node=r.node,
                 barangay=r.barangay,
-                itype=r.itype,
-                people=r.people,
+                itype=itype,
+                people=people,
                 severity=r.severity,
                 reported_tick=tick,
                 is_duplicate=r.is_duplicate,
@@ -62,6 +74,17 @@ class SensingAgent(Agent):
                 )
             )
         return out
+
+    def drain_advisory(self) -> list[dict[str, object]]:
+        """Return and clear the advisory-extraction audit records gathered this tick.
+
+        Empty unless ``llm_advisory`` is on. The scout cannot write the shared event log
+        itself (it only emits messages); the engine drains these into the blackboard audit
+        log, keeping the no-double-commit/idempotency invariants enforced in one place.
+        """
+        records = self._advisory
+        self._advisory = []
+        return records
 
     def _suspect_false(self, r: RawReport, cop_river_m: float | None) -> bool:
         """Flag a severe report from a barangay that cannot plausibly be flooding yet.

@@ -131,8 +131,8 @@ uv pip install -r requirements-core.txt
 uv pip install -e . --no-deps
 
 # 1) quality gates — behaviour/invariant tests, lint, format, types
-uv run pytest -q                      # 55 tests, all green (98% coverage)
-uv run ruff check src/ tests/ evals/  # lint: E/F/I/UP/B/SIM, all clean
+uv run pytest -q                      # 69 tests, all green (97% coverage)
+uv run ruff check src/ tests/ evals/  # lint: E/F/I/UP/B/SIM/C901, all clean
 uv run ruff format --check src/ tests/ evals/   # consistent formatting, all clean
 uv run mypy src/bayanihan_net         # strict types (disallow_untyped_defs), clean
 
@@ -150,11 +150,19 @@ uv run python -m bayanihan_net.cli rl-train
 
 # 6) Tier-A invariant gate (CI-style, hard exit code)
 uv run python evals/run_evals.py
+
+# 7) OPTIONAL: the advisory LLM perception layer (Tier B) — offline (no key) here;
+#    set OPENAI_API_KEY (requirements-llm.txt) to exercise live extraction
+uv run python -m bayanihan_net.cli run --llm-advisory
 ```
 
 The optional `requirements-stretch.txt` (gymnasium / torch / stable-baselines3) is **not
 required** — the shipped RL study is tabular numpy so it is fully reproducible with core deps.
 The stretch stack is the path to function approximation, documented in MARL_BRIDGE.
+`requirements-llm.txt` (openai-agents) is likewise optional — it powers only the advisory
+perception layer of step 7, which is **never on the safety-critical path** (every extraction is
+re-validated against ground truth and falls back deterministically; the default pipeline above is
+byte-identical with or without it). See [docs/DESIGN.md §6](docs/DESIGN.md).
 
 ---
 
@@ -173,6 +181,7 @@ evidence/
   eval_report.json       # per-policy means ± SE and paired hybrid-vs-baseline deltas
   stress_report.json     # per-scenario re-stabilization + safety checks
   rl_training.json       # naive vs risk-aware vs heuristic, with training curve
+  sample_llm_extract.txt # OPTIONAL Tier-B advisory layer: verified + guardrail-caught extraction
 figures/
   response_timeline.png  coverage_by_barangay.png  policy_comparison.png
   stress_response.png    rl_training_curve.png
@@ -221,8 +230,8 @@ awarded → asset_on_scene`); the serving asset's later return to the pool is lo
 ## Repository tour
 
 Listed in **reading order** — which is also strict **dependency order**: the import graph is a
-verified acyclic DAG (0 cycles across 36 modules), layered `config → messages/network → incidents
-→ blackboard/scenario → agents → coordinator → engine → baselines → cli`. Each module opens with a
+verified acyclic DAG (0 cycles across 39 modules), layered `config → messages/network → incidents
+→ blackboard/scenario → perception → agents → coordinator → engine → baselines → cli`. Each module opens with a
 docstring stating the problem it solves and why it exists; no function exceeds cyclomatic
 complexity 10. So you can read top-to-bottom and every file only depends on ones above it.
 
@@ -234,6 +243,7 @@ src/bayanihan_net/
   incidents.py         incident model · severity/priority · content-key dedup
   scenario.py          the seeded world: hydrograph, flooding, citizen-report stream
   blackboard.py        the COP: idempotency · leases/freshness · atomic no-double-commit
+  perception/          OPTIONAL advisory LLM layer (report_text renderer + guardrailed extractor)
   agents/              sensing · forecast · triage · logistics · medical · routing · coordinator · auditor
   coordination/        blackboard_bus · contract_net (welfare scoring) · escalation (HITL + rollback)
   governance/          policy (scopes + HITL gate, pure) · metrics (golden signals + Gini/entropy)
@@ -245,7 +255,7 @@ src/bayanihan_net/
   plotting.py          figures
   cli.py               run / eval / stress / rl-train
 evals/                 scenarios.jsonl · run_evals.py (Tier-A gate)
-tests/                 55 behaviour/invariant tests (98% coverage)
+tests/                 69 behaviour/invariant tests (97% coverage)
 docs/                  SYSTEM_BRIEF · DESIGN · COMMUNICATION_CONTRACT · EVALUATION_PLAN ·
                        SAFETY_GOVERNANCE · MARL_BRIDGE · COURSE_ALIGNMENT · REFLECTION
 paper/                 report.tex + committed report.pdf (self-contained write-up)
@@ -280,6 +290,14 @@ AGENTS.md              the agent-roster contract
 
 - **RL is offline and advisory only** — never in the live safety loop; the deterministic
   heuristic is always the authority.
+
+- **The LLM is opt-in, advisory, and structurally bounded.** The live coordination loop is
+  deliberately deterministic (the correct stance for irreversible, life-safety decisions). The
+  one place an LLM is used — the opt-in `--llm-advisory` perception layer — can **never move a
+  safety-relevant value**: every extraction is re-validated against deterministic ground truth
+  and a mismatch falls back. Default off ⇒ the pipeline is byte-identical and needs no key. We
+  deliberately did *not* adopt the Agents SDK for the live loop and apply its discipline
+  natively; see [docs/DESIGN.md §6](docs/DESIGN.md) and [COURSE_ALIGNMENT.md](docs/COURSE_ALIGNMENT.md).
 
 - **Modest, honest effect sizes.** Under severe capacity saturation the policy gaps are small
   but consistent and, where claimed significant, are paired-significant across 12 seeds.

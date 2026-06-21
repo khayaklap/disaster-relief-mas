@@ -233,6 +233,33 @@ Two distinct boundaries, both *real in code* with mocked upstreams ([`interop/`]
 Both are wired into the live run: a worked run logs 48 traced MCP calls and one idempotent A2A
 mutual-aid request, completed by the partner agency.
 
+### 6a. Why the live loop uses no LLM — and where one *is* used (the advisory perception layer)
+
+The live coordination loop is **deliberately deterministic and uses no OpenAI Agents SDK**. This is
+the correct, defended choice for this problem, not an omission: the decisions are irreversible and
+life-safety-critical, and the deck's own guidance is *"governance requires deterministic decisions"*
+(MAS s88) and *"start simple… earn the complexity."* A non-deterministic model choosing which
+barangay gets the last boat is exactly what you do not want; determinism is also what makes the whole
+evidence story — byte-identical, no-API-key, seed-reproducible — hold. So the SDK's *discipline*
+(typed contracts, guardrails, approvals, tracing, structured outputs) is applied **natively** in the
+loop (see [COURSE_ALIGNMENT.md, Deck 2](COURSE_ALIGNMENT.md)), and the SDK *runtime* is not needed
+where there is no model to orchestrate.
+
+There is, however, one place a real LLM genuinely helps and cannot cause harm: the **perception
+edge**. Real disaster reports arrive as free text (hotline calls, SMS, social posts), not typed
+records. The opt-in advisory layer ([`perception/`](../src/bayanihan_net/perception/), enabled with
+`--llm-advisory`) renders each structured report back to realistic free text, has an Agents-SDK agent
+extract the typed facts a citizen states (headcount + type), and **re-validates that extraction
+against the deterministic ground truth** with an output guardrail (`evaluate_extraction`). A passing
+extraction equals the truth (the run is unchanged); a failing one — a hallucinated headcount, a wrong
+type — trips the guardrail and **falls back** to the deterministic facts, logged as evidence. The LLM
+is therefore *observed and verified, never trusted*: it can never move a safety-relevant value, by
+construction. It is **opt-in and offline-by-default** (no key ⇒ deterministic passthrough), so the
+default pipeline imports no LLM library and is byte-identical. This mirrors the MARL safety boundary
+(*RL informs; code and the human decide*, [SAFETY_GOVERNANCE.md §5](SAFETY_GOVERNANCE.md)) and is the
+faithful Assignment-1 pattern — typed output + guardrail-against-truth + fallback + tracing — applied
+at the one edge where a model adds value without touching commit authority.
+
 ---
 
 ## 7. Operations

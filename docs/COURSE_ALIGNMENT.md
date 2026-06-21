@@ -6,11 +6,16 @@ from** the decks. It covers all five: *Intro to Agentic AI*, *OpenAI Agents SDK*
 Engineering*, *Deep RL for Agentic AI*, and *Building Multi-Agent Systems*. Slide numbers (`sN`) cite
 the deck where a concept appears.
 
-A framing note up front, stated honestly: the agents here are **deterministic decision units, not LLM
-agents**. That is itself the course's guidance — the MAS deck's *"governance requires deterministic
-decisions"* (s88) and the intro deck's *"start simple… earn the complexity."* The agentic-design
-*discipline* (typed contracts, memory policy, guardrails, traces, evals, HITL) applies fully and is
-what we demonstrate; the model is simply not the interesting risk surface in a life-safety allocator.
+A framing note up front, stated honestly: the agents in the **live coordination loop** are
+**deterministic decision units, not LLM agents**. That is itself the course's guidance — the MAS
+deck's *"governance requires deterministic decisions"* (s88) and the intro deck's *"start simple…
+earn the complexity."* The agentic-design *discipline* (typed contracts, memory policy, guardrails,
+traces, evals, HITL) applies fully and is what we demonstrate; a non-deterministic model is simply
+not what you want choosing which barangay gets the last boat. A real LLM **is** used in exactly one
+place — the opt-in, offline-by-default **advisory perception layer** (`--llm-advisory`,
+[`perception/`](../src/bayanihan_net/perception/)) — where it is bounded by an output guardrail so it
+can never move a safety-relevant value. See the Deck 2 section below for where, and why, the SDK
+discipline is applied natively in the loop and the SDK itself only at that advisory edge.
 
 ---
 
@@ -66,9 +71,19 @@ what we demonstrate; the model is simply not the interesting risk surface in a l
 
 ---
 
-## Deck 2 — OpenAI Agents SDK (patterns applied natively, without the SDK)
+## Deck 2 — OpenAI Agents SDK (patterns applied natively in the loop; the SDK itself at the advisory edge)
 
-We do not use the SDK, but its **patterns** are the discipline — implemented in plain Python.
+In the **live coordination loop** we do not use the SDK — its **patterns** are the discipline,
+implemented in plain Python, because an LLM has no place choosing irreversible, life-safety actions
+(the deck's own *"start with one focused agent… governance requires deterministic decisions"*). We
+*do* use the real OpenAI Agents SDK in exactly **one** bounded place — the opt-in advisory
+**perception layer** ([`perception/llm_extract.py`](../src/bayanihan_net/perception/llm_extract.py))
+— where it earns its keep on a non-safety-critical sub-task and is fenced so it cannot cause harm.
+That seam is the faithful Assignment-1 port: a typed `output_type` agent + an **output guardrail that
+re-validates the model against ground truth** (`evaluate_extraction`) + a deterministic fallback +
+tracing + an offline stub. It demonstrates the deck's hardest lesson — a confidently-wrong model
+(a hallucinated headcount) is **caught and discarded** — without ever letting the model move a
+decision. The native-pattern map (the live loop):
 
 | SDK primitive / rule | Native equivalent here |
 |---|---|
@@ -126,10 +141,13 @@ Applied in `rl/`. Faithfulness is high on the RL mechanics; the precise attribut
 
 ## Where we extend beyond, or diverge from, the decks (honest)
 
-- **Deterministic agents, not LLM agents.** The decks are LLM/Codex-centric; our control plane is pure
-  Python. This is a *deliberate* reading of the decks' own governance guidance (determinism for
-  life-safety), not an omission — but it means LLM-specific content (prompt injection blast radius,
-  RLHF, sandbox-for-codegen) is *analogized*, not literally exercised.
+- **Deterministic agents in the live loop; one real LLM at the advisory edge.** The decks are
+  LLM/Codex-centric; our *control plane* is pure Python — a *deliberate* reading of the decks' own
+  governance guidance (determinism for life-safety), not an omission. We do exercise the real Agents
+  SDK literally, in the opt-in advisory perception layer (`--llm-advisory`), so the SDK discipline
+  (typed output, output-guardrail-against-truth, deterministic fallback, tracing) is *demonstrated*,
+  not only analogized. The remaining LLM-specific content we still only analogize is prompt-injection
+  blast radius (the rendered free text is trusted-synthetic here), RLHF, and sandbox-for-codegen.
 - **CTDE is sourced from the MAS deck (s86), not the Deep RL deck.** The Deep RL deck is single-agent
   and never mentions CTDE/MADDPG/QMIX; MARL_BRIDGE now attributes precisely and labels our model a
   *parameter-sharing* CTDE simplification.

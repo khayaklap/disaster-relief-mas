@@ -40,6 +40,7 @@ from .incidents import Incident, IncidentStatus
 from .interop.a2a import A2AClient, default_mutual_aid_network
 from .interop.mcp_tools import MCPRegistry, default_registry
 from .messages import Envelope, MsgType, TaskAnnouncePayload
+from .perception.llm_extract import provenance_block
 from .provenance import env_fingerprint, library_versions
 from .scenario import World
 
@@ -213,6 +214,9 @@ class Engine:
                         tick,
                         drop_prob=self.params.comms_drop_prob,
                     )
+                    # drain any advisory-LLM extraction audit records (empty unless enabled)
+                    for rec in scout.drain_advisory():
+                        self.bb.record(tick, "llm_extract", **rec)
 
             # medical mass-casualty watch -> on first overload, request A2A mutual aid
             if self.medical.alive:
@@ -508,7 +512,7 @@ class Engine:
 
     def _provenance(self) -> dict[str, Any]:
         libs = library_versions()
-        return {
+        prov: dict[str, Any] = {
             "policy": self.policy_name,
             "use_fairness": self.use_fairness,
             "use_governance": self.use_governance,
@@ -529,6 +533,11 @@ class Engine:
                 "forecast_outage_at_peak": self.params.forecast_outage_at_peak,
             },
         }
+        # The advisory-LLM block is added ONLY when the opt-in layer is on, so the default
+        # run's provenance (and therefore its evidence) is byte-identical to before.
+        if self.params.llm_advisory:
+            prov["llm"] = provenance_block(self.bb.events)
+        return prov
 
 
 def _incident_id_of(task_env: Envelope) -> str:
