@@ -179,7 +179,7 @@ class Auditor(Agent):
         """The *agent-* and *interaction-*level evaluation panels (the two levels the
         outcome/emergence reports don't cover), computed straight from the audit log and the
         message wire-tap so every level of the four-level grid emits real numbers."""
-        # -- agent level: did each agent do its job? --
+        # agent level: did each agent do its job?
         n_feasible_bids = sum(1 for e in bus_log if e.msg_type is MsgType.BID)
         n_infeasible = sum(1 for e in events if e["event"] == "bid_infeasible")
         attempts = n_feasible_bids + n_infeasible
@@ -193,7 +193,7 @@ class Auditor(Agent):
             "suspected_false_suppressed": suppressed,
         }
 
-        # -- interaction level: did the protocols hold? --
+        # interaction level: did the protocols hold?
         committed: set[str | None] = set()
         double_commit = False
         for e in events:

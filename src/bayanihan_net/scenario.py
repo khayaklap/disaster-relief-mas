@@ -63,7 +63,7 @@ class World:
         self._counter = 0
         self._prev_river = scenario.params.river_start_m
 
-    # -- hydrology -------------------------------------------------------------------
+    # hydrology
     def true_river_m(self, tick: int) -> float:
         """Piecewise-linear hydrograph: rise to the peak, then recede toward 1st alarm."""
         p = self.params
@@ -82,7 +82,7 @@ class World:
         """Change in true river level over the previous tick (metres/tick; negative once falling)."""
         return self.true_river_m(tick) - self.true_river_m(tick - 1)
 
-    # -- demand generation -----------------------------------------------------------
+    # demand generation
     def _next_id(self, prefix: str) -> str:
         self._counter += 1
         return f"{prefix}-{self._counter:04d}"
@@ -206,7 +206,7 @@ class World:
         self._prev_river = river_m
         return reports
 
-    # -- scoring helpers -------------------------------------------------------------
+    # scoring helpers
     def total_genuine_need(self) -> dict[str, int]:
         """People-in-need per barangay across all genuine incidents (the denominator)."""
         need: dict[str, int] = {}

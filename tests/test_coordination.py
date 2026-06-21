@@ -69,7 +69,7 @@ def _bid(
     )
 
 
-# -- incentive alignment in the bid score --------------------------------------------
+# incentive alignment in the bid score
 def test_global_welfare_prefers_serving_more_people_than_local_cost() -> None:
     inc = _incident(people=40, severity=0.8)
     # A small/fast asset (lower local_cost) vs a large/slower one that serves far more.
@@ -95,7 +95,7 @@ def test_infeasible_bids_never_win() -> None:
     assert select_winner([infeasible]) is None
 
 
-# -- the HITL policy gate ------------------------------------------------------------
+# the HITL policy gate
 def test_gate_fires_on_last_asset_and_large_commit() -> None:
     p = EnvParams()
     # last ready unit of a SCARCE type (medical, fleet 2) -> gated...
@@ -193,7 +193,7 @@ def test_auto_rollback_triggers_past_gini_threshold() -> None:
     assert should_auto_rollback(p.gini_rollback_threshold - 0.01, p) is False
 
 
-# -- the bus: transport idempotency vs. corroborating fusion -------------------------
+# the bus: transport idempotency vs. corroborating fusion
 def test_bus_drops_exact_duplicate_but_fuses_distinct_corroborations() -> None:
     bb = Blackboard(EnvParams())
     bus = BlackboardBus(bb)
@@ -221,7 +221,7 @@ def test_bus_enforces_cop_write_scope() -> None:
     assert any(e["event"] == "scope_denied" for e in bb.events)
 
 
-# -- triage suppression of uncorroborated Sybil reports ------------------------------
+# triage suppression of uncorroborated Sybil reports
 def test_triage_suppresses_uncorroborated_suspected_false() -> None:
     bb = Blackboard(EnvParams())
     fake = _report_payload("C", suspected=True)
@@ -232,7 +232,7 @@ def test_triage_suppresses_uncorroborated_suspected_false() -> None:
     assert all(t.typed_payload().incident_id != "fake-key" for t in tasks)  # never announced
 
 
-# -- end-to-end: no double commit + escalation through the coordinator ----------------
+# end-to-end: no double commit + escalation through the coordinator
 def test_coordinator_awards_then_blocks_double_commit() -> None:
     scenario = _scenario()
     bb = Blackboard(scenario.params)
@@ -327,7 +327,7 @@ def test_coordinator_rollback_refuses_on_scene_asset() -> None:
     assert inc.status is IncidentStatus.ASSIGNED
 
 
-# -- small builders -------------------------------------------------------------------
+# small builders
 def _ctx() -> SecurityContext:
     return SecurityContext(role="t", scopes=())
 

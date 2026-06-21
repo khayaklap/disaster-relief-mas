@@ -185,7 +185,7 @@ class Engine:
             SensingAgent("scout-upland", self.scenario, [b.node for b in bgys[half:]]),
         ]
 
-    # -- the main loop ---------------------------------------------------------------
+    # the main loop
     def run(self) -> RunReport:
         """Run the full scenario tick by tick and return the provenance-stamped report."""
         peak = self.params.river_peak_tick
@@ -235,7 +235,7 @@ class Engine:
 
         return self._build_report()
 
-    # -- allocation ------------------------------------------------------------------
+    # allocation
     def _allocate(self, tasks: list[Envelope], tick: int, cop_river: float | None) -> None:
         cop = self.bb.incidents
         ordered = self._order_tasks(tasks, cop)
@@ -312,7 +312,7 @@ class Engine:
             return 0.0
         return max(0.0, min(1.0, 1.0 - served / need))
 
-    # -- asset movement & lifecycle --------------------------------------------------
+    # asset movement & lifecycle
     def _advance_assets(self, tick: int) -> None:
         for a in list(self.bb.assets.values()):
             if (
@@ -379,7 +379,7 @@ class Engine:
                 return agent.alive
         return True
 
-    # -- interoperability ------------------------------------------------------------
+    # interoperability
     def _mcp_river(self, true_river: float, tick: int) -> float:
         """Source the river reading via the scoped PAGASA MCP tool (echo mock). Falls back
         to the direct reading if interop is disabled; logs the traced hop either way."""
@@ -414,7 +414,7 @@ class Engine:
             accepted=task.result is not None,
         )
 
-    # -- stress ----------------------------------------------------------------------
+    # stress
     def _apply_peak_stress(self, tick: int) -> None:
         if self.params.forecast_outage_at_peak:
             self.forecast.alive = False
@@ -426,7 +426,7 @@ class Engine:
             for aid in ids[:k]:
                 self.bb.disable_asset(aid, tick, reason="stress_agent_kill")
 
-    # -- plumbing --------------------------------------------------------------------
+    # plumbing
     def _emit(self, envs: list[Envelope], tick: int, *, drop_prob: float = 0.0) -> None:
         for env in envs:
             if not self.bus.publish(env, tick, drop_prob=drop_prob):
@@ -482,7 +482,7 @@ class Engine:
             )
         )
 
-    # -- reporting -------------------------------------------------------------------
+    # reporting
     def _build_report(self) -> RunReport:
         outcome = self.auditor.outcome_report(self.world, self.bb)
         emergence = self.auditor.emergence_report(

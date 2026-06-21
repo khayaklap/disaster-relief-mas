@@ -50,7 +50,7 @@ class RoadNetwork:
         self._river_m = params.river_start_m
         self.update_flood(params.river_start_m)
 
-    # -- flood dynamics --------------------------------------------------------------
+    # flood dynamics
     def update_flood(self, river_m: float) -> None:
         """Recompute every edge's flood depth from the current river level."""
         self._river_m = river_m
@@ -81,7 +81,7 @@ class RoadNetwork:
             return True
         return all(self.passable(u, v, mode) for u, v in zip(path[:-1], path[1:], strict=True))
 
-    # -- cost model ------------------------------------------------------------------
+    # cost model
     def _edge_risk(self, depth: float) -> float:
         """0..1 flood risk for an edge at a given depth (deeper water = riskier)."""
         return min(1.0, depth / self.params.boat_max_depth_m)
@@ -102,7 +102,7 @@ class RoadNetwork:
         keep = [(u, v) for u, v in self.G.edges() if self.passable(u, v, mode)]
         return self.G.edge_subgraph(keep)
 
-    # -- routing ---------------------------------------------------------------------
+    # routing
     def route(
         self, src: str, dst: str, mode: TravelMode, *, risk_aware: bool = True
     ) -> RouteResult:

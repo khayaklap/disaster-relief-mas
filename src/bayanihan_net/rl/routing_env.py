@@ -64,7 +64,7 @@ class FloodRoutingEnv:
         self._flood_idx = 0
         self._steps = 0
 
-    # -- episode control -------------------------------------------------------------
+    # episode control
     def reset(self, dest: str | None = None, river_m: float | None = None) -> tuple[int, int, int]:
         """Begin a new episode and return the initial state. The destination and river level
         are drawn randomly unless pinned (the evaluator pins them for a fixed comparison set)."""
@@ -112,7 +112,7 @@ class FloodRoutingEnv:
         done = arrived or self._steps >= self.max_steps or not self.valid_actions(self._state())
         return StepResult(self._state(), reward, done, arrived, minutes, risk)
 
-    # -- deterministic rollout for evaluation on the TRUE objective -------------------
+    # deterministic rollout for evaluation on the TRUE objective
     def rollout(
         self, policy: dict[tuple[int, int, int], np.ndarray], dest: str, river_m: float
     ) -> tuple[bool, float, float, int]:

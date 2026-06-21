@@ -13,7 +13,7 @@ from bayanihan_net.interop.mcp_tools import default_registry
 from bayanihan_net.messages import SecurityContext
 
 
-# -- MCP: scoped discovery + policy-gated, trace-propagating calls --------------------
+# MCP: scoped discovery + policy-gated, trace-propagating calls
 def test_mcp_discovery_lists_tools_and_scopes() -> None:
     tools = {t.name: t for t in default_registry().discover()}
     assert "pagasa.river" in tools
@@ -31,7 +31,7 @@ def test_mcp_call_requires_the_declared_scope() -> None:
     assert denied.ok is False and "scope" in (denied.error or "")
 
 
-# -- A2A: local access policy, capability match, idempotency, retry ------------------
+# A2A: local access policy, capability match, idempotency, retry
 def test_a2a_completes_for_a_trusted_capable_partner() -> None:
     client = default_mutual_aid_network()
     task = client.request(

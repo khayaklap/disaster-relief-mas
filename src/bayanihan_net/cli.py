@@ -36,9 +36,7 @@ from .provenance import tooling_provenance
 _DEFAULT_SCENARIOS = Path(__file__).resolve().parents[2] / "evals" / "scenarios.jsonl"
 
 
-# ---------------------------------------------------------------------------
 # evidence writers
-# ---------------------------------------------------------------------------
 def write_evidence(engine: Engine, report: RunReport, outdir: Path) -> None:
     """Write the four standard evidence artifacts for a single run."""
     outdir.mkdir(parents=True, exist_ok=True)
@@ -151,9 +149,7 @@ def print_summary(report: RunReport) -> None:
     )
 
 
-# ---------------------------------------------------------------------------
 # subcommands
-# ---------------------------------------------------------------------------
 def cmd_run(args: argparse.Namespace) -> int:
     """`run`: simulate one worked scenario and write its stamped evidence artifacts."""
     cfg = config_with(args.seed)

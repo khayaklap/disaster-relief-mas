@@ -96,12 +96,12 @@ class EdgeSpec:
 class EnvParams:
     """Physics, economics, timing, and governance thresholds for the simulation."""
 
-    # --- timing ---
+    # timing
     horizon_ticks: int = 48  # 48 ticks * 15 min = 12 h response window
     tick_minutes: int = 15
     service_ticks: int = 1  # on-scene work duration before an asset is freed
 
-    # --- river hydrograph (metres at the Sto. Nino gauge; illustrative) ---
+    # river hydrograph (metres at the Sto. Nino gauge; illustrative)
     river_start_m: float = 13.0
     river_peak_m: float = 19.2
     river_peak_tick: int = 22  # rises to peak, then recedes
@@ -109,15 +109,14 @@ class EnvParams:
     alarm2_m: float = 16.0  # 2nd alarm
     alarm3_m: float = 18.0  # 3rd alarm -> forced-evacuation regime
 
-    # --- street flooding (depth in metres on an edge/barangay) ---
-    # local_depth = max(0, (river_m - flood_onset_m)) * exposure
+    # street flooding: edge depth = max(0, river_m - flood_onset_m) * exposure, in metres
     flood_onset_m: float = 14.0
     road_impassable_depth_m: float = 0.6  # trucks blocked above this
     boat_max_depth_m: float = 5.5  # boats fail above this (debris/current); riverside stays
     #                                boat-reachable at peak, so boats are the flood asset and
     #                                trucks/medical (ROAD) get cut off -- the core asset tension
 
-    # --- demand generation ---
+    # demand generation
     base_report_rate: float = (
         0.22  # expected new genuine incidents per active barangay/tick at peak
     )
@@ -132,12 +131,12 @@ class EnvParams:
     agent_kill_fraction: float = 0.0  # fraction of the fleet disabled at peak (asset loss)
     forecast_outage_at_peak: bool = False  # knock out the river gauge -> stale COP / misroute
 
-    # --- service-level targets (ticks to first dispatch, by priority) ---
+    # service-level targets (ticks to first dispatch, by priority)
     sla_critical_ticks: int = 2
     sla_high_ticks: int = 4
     sla_medium_ticks: int = 8
 
-    # --- governance / safety thresholds ---
+    # governance / safety thresholds
     # An award is HITL-gated (irreversible/high-stakes) when ANY of these hold:
     last_asset_of_type_gate: bool = True  # committing the last ready unit of a scarce type
     reserve_protect_fleet: int = 2  # only gate "last unit" for types this small (e.g. medical)
@@ -156,7 +155,7 @@ class EnvParams:
     gini_rollback_threshold: float = 0.55
 
 
-# --- The Marikina scenario fixture (illustrative geography) ---------------------------
+# The Marikina scenario fixture (illustrative geography)
 # Nodes: 6 flood-exposed barangays + 2 staging/care nodes + 2 junctions.
 #   T Tumana, M Malanday, N Nangka, P Provident, I Industrial Valley, C Concepcion Uno
 #   SPORTS  = Marikina Sports Center (evacuation hub + asset base)

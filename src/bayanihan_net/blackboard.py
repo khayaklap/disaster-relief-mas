@@ -75,12 +75,12 @@ class Blackboard:
         self._river: tuple[float, int] | None = None  # (level_m, posted_tick)
         self._roads: dict[tuple[str, str], tuple[float, int]] = {}  # edge -> (depth, posted_tick)
 
-    # -- audit ----------------------------------------------------------------------
+    # audit
     def record(self, tick: int, event: str, **fields: Any) -> None:
         """Append one immutable event to the audit log."""
         self.events.append({"tick": tick, "event": event, **fields})
 
-    # -- asset registry -------------------------------------------------------------
+    # asset registry
     def register_fleet(self, fleet: tuple[AssetSpec, ...]) -> None:
         """Seed the COP with an idle AssetState for every asset in the fleet."""
         for a in fleet:
@@ -104,7 +104,7 @@ class Blackboard:
         """How many assets of a type are idle -- the scarcity signal the reserve gate reads."""
         return len(self.idle_of_type(asset_type))
 
-    # -- atomic commitment (no double-commit) ---------------------------------------
+    # atomic commitment (no double-commit)
     def try_commit(self, asset_id: str, incident_id: str, task_id: str, tick: int) -> bool:
         """Atomically commit an IDLE asset to a task. Returns ``False`` if the asset was
         already taken -- this is the single guarantee that no asset is double-committed."""
@@ -201,7 +201,7 @@ class Blackboard:
         a.status = AssetStatus.DISABLED
         self.record(tick, "asset_disabled", asset_id=asset_id, reason=reason)
 
-    # -- incident view (idempotent ingest) ------------------------------------------
+    # incident view (idempotent ingest)
     def ingest_report(
         self, payload: IncidentReportPayload, key: str, tick: int
     ) -> tuple[Incident, bool]:
@@ -251,7 +251,7 @@ class Blackboard:
         opens = [i for i in self.incidents.values() if i.status is IncidentStatus.OPEN]
         return sorted(opens, key=lambda i: (-i.severity, i.deadline_tick))
 
-    # -- observation freshness (leases) ---------------------------------------------
+    # observation freshness (leases)
     def post_river(self, river_m: float, tick: int) -> None:
         """Post a river-level observation with its freshness tick (subject to the COP lease)."""
         self._river = (river_m, tick)

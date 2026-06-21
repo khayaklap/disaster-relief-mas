@@ -180,9 +180,7 @@ def summarize(reports: list[RunReport]) -> dict[str, Any]:
     }
 
 
-# ---------------------------------------------------------------------------
 # Red-team stress battery
-# ---------------------------------------------------------------------------
 @dataclass(frozen=True)
 class StressScenario:
     """A named perturbation: a set of EnvParams overrides applied to the base scenario."""

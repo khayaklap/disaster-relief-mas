@@ -86,7 +86,7 @@ class MCPRegistry:
         return self._adapters[name]
 
 
-# -- mocked upstream handlers (deterministic; the boundary is what is real) -----------
+# mocked upstream handlers (deterministic; the boundary is what is real)
 def _pagasa_handler(*, river_m: float) -> dict[str, Any]:
     return {"gauge": "sto_nino", "river_m": river_m, "source": "PAGASA (mock)"}
 

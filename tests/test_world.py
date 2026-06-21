@@ -19,7 +19,7 @@ def _scenario() -> Scenario:
     return Scenario("test", EnvParams())
 
 
-# -- determinism ---------------------------------------------------------------------
+# determinism
 def test_world_is_deterministic_from_seed() -> None:
     def run() -> list[tuple[str, str, int, IncidentType, bool, bool]]:
         w = World(_scenario(), seed=12345)
@@ -44,7 +44,7 @@ def test_different_seeds_differ() -> None:
     assert s1 != s2
 
 
-# -- hydrograph ----------------------------------------------------------------------
+# hydrograph
 def test_hydrograph_rises_to_peak_then_recedes() -> None:
     w = World(_scenario(), seed=0)
     p = w.params
@@ -55,7 +55,7 @@ def test_hydrograph_rises_to_peak_then_recedes() -> None:
     assert all(levels[t] >= levels[t + 1] for t in range(p.river_peak_tick, p.horizon_ticks - 1))
 
 
-# -- flood / routing -----------------------------------------------------------------
+# flood / routing
 def test_flood_blocks_trucks_before_boats() -> None:
     params = EnvParams()
     net = RoadNetwork(_scenario().edges, params)
@@ -79,7 +79,7 @@ def test_risk_aware_routing_can_prefer_a_safer_path() -> None:
     assert safe.risk <= naive.risk + 1e-9
 
 
-# -- blackboard: idempotent dedup ----------------------------------------------------
+# blackboard: idempotent dedup
 def _report(node: str, people: int, tick: int, *, suspected: bool = False) -> IncidentReportPayload:
     return IncidentReportPayload(
         incident_id=f"GT-{node}-{tick}",
@@ -105,7 +105,7 @@ def test_duplicate_reports_fuse_into_one_incident() -> None:
     assert inc1.people == 42  # keeps the worst-case headcount
 
 
-# -- blackboard: no double-commit ----------------------------------------------------
+# blackboard: no double-commit
 def test_no_double_commit() -> None:
     bb = Blackboard(EnvParams())
     bb.register_fleet(_scenario().fleet)
@@ -134,7 +134,7 @@ def test_lease_expiry_then_release_frees_asset() -> None:
     assert inc.status is IncidentStatus.OPEN  # reverted for re-auction
 
 
-# -- blackboard: observation freshness ----------------------------------------------
+# blackboard: observation freshness
 def test_observation_freshness_lease() -> None:
     params = EnvParams()
     bb = Blackboard(params)

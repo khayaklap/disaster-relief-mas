@@ -69,10 +69,8 @@ class SecurityContext(BaseModel):
     token: str = "local-trust"  # opaque capability token (mocked)
 
 
-# ---------------------------------------------------------------------------
 # Typed payloads -- one model per message type. ``extra="forbid"`` makes each a
 # strict contract: an unknown field is a protocol violation, not silent drift.
-# ---------------------------------------------------------------------------
 
 
 class _Payload(BaseModel):
