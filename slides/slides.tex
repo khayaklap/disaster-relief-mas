@@ -124,17 +124,17 @@
     \node[gate, right=of co] (g) {HITL gate (approver)};
     \node[box, right=of g] (o) {Commit / route};
     \foreach \x/\y in {w/s,s/c,c/t,t/a,a/co,co/g,g/o} \draw[->, thick] (\x)--(\y);
-    \draw[->, thick] (o) to[out=90,in=90] node[above,font=\footnotesize]{commit / route updates COP} (c);
-    \node[draw, rounded corners, fill=gray!14, below=1.2cm of t, text width=15.5cm, align=center, xshift=2.2cm]
+    \draw[->, thick] (o) to[out=90,in=90,looseness=0.5] node[above,font=\footnotesize]{commit / route updates COP} (c);
+    \node[draw, rounded corners, fill=gray!14, below=0.8cm of t, text width=15.5cm, align=center, xshift=2.2cm]
       {\textbf{Cross-cutting:}\;\; Governance (capability scopes, gate rules, pure)
        \quad$\cdot$\quad Auditor (golden signals + emergence metrics, read-only)
        \quad$\cdot$\quad Interop (MCP tools, A2A mutual aid)};
   \end{tikzpicture}}
-  \vspace{0.5em}\\
-  \footnotesize Each tick: world advances $\rightarrow$ COP refreshes $\rightarrow$ triage prioritizes
-  $\rightarrow$ auction $\rightarrow$ award (through the HITL gate) $\rightarrow$ assets move along
-  risk-aware routes, \emph{validated against the true flood at arrival}. The control plane is pure,
-  deterministic Python; only the world is stochastic (one seed).
+  \vspace{0.3em}\\
+  \footnotesize Each tick: world advances $\rightarrow$ COP refreshes $\rightarrow$ triage $\rightarrow$
+  auction $\rightarrow$ award (through the HITL gate) $\rightarrow$ assets move along risk-aware routes,
+  \emph{validated against the true flood at arrival}. The control plane is deterministic; only the world
+  is stochastic (one seed).
 \end{frame}
 
 % ---------------------------------------------------------------- roster
